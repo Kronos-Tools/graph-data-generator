@@ -1,0 +1,24 @@
+{
+	"objects": [{
+		"name": "application",
+		"count_all": 10,
+		"count_current": 5
+	}, {
+		"name": "account",
+		"count_all": 200,
+		"count_current": 100
+	}],
+	"relations": [{
+		"rel": {
+			"name": "application_has_account",
+			"src": "application",
+			"target": "account"
+		},
+		"count_all": 0,
+		"count_current": 0,
+		"constraints": {
+			"min": 5,
+			"max": 380000
+		}
+	}]
+}
