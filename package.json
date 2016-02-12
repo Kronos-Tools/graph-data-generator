@@ -1,0 +1,47 @@
+{
+  "name": "graph-data-generator",
+  "version": "0.0.0-semantic-release",
+  "description": "Base flow implementation",
+  "keywords": [
+    "kronos-step"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "cover": "node ./node_modules/istanbul/lib/cli.js cover --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --R spec --U exports tests/*_test.js",
+    "doc": "jsdoc lib/*.js",
+    "test": "mocha tests/*_test.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kronos-Integration/graph-data-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kronos-Integration/graph-data-generator/issues"
+  },
+  "homepage": "https://github.com/Kronos-Integration/graph-data-generator#readme",
+  "engines": {
+    "node": ">=5"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "cz-conventional-changelog": "^1.1.5",
+    "istanbul": "0.4.2",
+    "mocha": "2.4.5",
+    "semantic-release": "6.2.0",
+    "jsdoc": "3.4.0"
+  },
+  "contributors": [{
+    "name": "Torsten Link",
+    "email": "torstenlink@gmx.de"
+  }, {
+    "name": "Markus Felten",
+    "email": "markus.felten@gmx.de"
+  }],
+  "license": "BSD-2-Clause",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - 5
+sudo: false
+branches:
+  only:
+    - master
+cache:
+  directories:
+    - node_modules
+notifications:
+  email:
+    - torstenlink@gmx.de
+    - markus.felten@gmx.de
+before_install:
+  - npm i -g npm@latest
+before_script:
+  - npm prune
+script:
+  - npm run-script cover
+after_script:
+after_success:
+  - npm run semantic-release

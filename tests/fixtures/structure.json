@@ -1,0 +1,163 @@
+{
+	"objects": [{
+		"name": "account",
+		"count_all": 4600000,
+		"count_current": 3000000
+	}, {
+		"name": "application",
+		"count_all": 1900,
+		"count_current": 1900
+	}, {
+		"name": "entitlement",
+		"count_all": 2600000,
+		"count_current": 440000
+	}, {
+		"name": "identity",
+		"count_all": 470000,
+		"count_current": 165000
+	}, {
+		"name": "line_manager",
+		"count_all": 42000,
+		"count_current": 16000
+	}, {
+		"name": "structure node",
+		"count_all": 12300,
+		"count_current": 5100
+	}, {
+		"name": "security officer",
+		"count_all": 1000,
+		"count_current": 500
+	}, {
+		"name": "chief security officer",
+		"count_all": 40,
+		"count_current": 20
+	}, {
+		"name": "chief security officer delegate",
+		"count_all": 110,
+		"count_current": 70
+	}, {
+		"name": "role",
+		"count_all": 7000,
+		"count_current": 7000
+	}, {
+		"name": "role_platform",
+		"count_all": 6,
+		"count_current": 4
+	}, {
+		"name": "role_platform_member",
+		"count_all": 800,
+		"count_current": 250
+	}],
+
+
+
+	"relations": [{
+		"rel": {
+			"src": "account",
+			"relation": "has",
+			"target": "entitlement",
+			"constraints": {
+				"min": 5,
+				"max": 11000
+			}
+		},
+		"count_all": 20000000,
+		"count_current": 9000000
+	}, {
+		"rel": {
+			"src": "role_platform",
+			"relation": "has",
+			"target": "role_platform_member"
+		},
+		"count_all": 0,
+		"count_current": 0
+	}, {
+		"rel": {
+			"src": "role",
+			"relation": "has",
+			"target": "entitlement"
+		},
+		"count_all": 950000,
+		"count_current": 270000
+	}, {
+		"rel": {
+			"src": "application",
+			"relation": "has",
+			"target": "account"
+		},
+		"count_all": 0,
+		"count_current": 0,
+		"constraints": {
+			"min": 5,
+			"max": 380000
+		}
+	}, {
+		"rel": {
+			"src": "identity",
+			"relation": "owns",
+			"target": "account",
+			"constraints": {
+				"min": 5,
+				"max": 1400
+			}
+		},
+		"count_all": 0,
+		"count_current": 0
+	}, {
+		"rel": {
+			"src": "identity",
+			"relation": "has",
+			"target": "line_manager"
+		},
+		"count_all": 0,
+		"count_current": 0
+	}, {
+		"rel": {
+			"src": "identity",
+			"relation": "is",
+			"target": "security officer"
+		},
+		"count_all": 0,
+		"count_current": 0
+	}, {
+		"rel": {
+			"src": "identity",
+			"relation": "belongs to",
+			"target": "structure node"
+		},
+		"count_all": 0,
+		"count_current": 0
+	}, {
+		"rel": {
+			"src": "identity",
+			"relation": "is",
+			"target": "line_manager"
+		},
+		"count_all": 0,
+		"count_current": 0
+	}, {
+		"rel": {
+			"src": "identity",
+			"relation": "is",
+			"target": "chief security officer"
+		},
+		"count_all": 0,
+		"count_current": 0
+	}, {
+		"rel": {
+			"src": "identity",
+			"relation": "is",
+			"target": "chief security officer delegate"
+		},
+		"count_all": 0,
+		"count_current": 0
+	}, {
+		"rel": {
+			"src": "chief security officer",
+			"relation": "has",
+			"target": "chief security officer delegate"
+		},
+		"count_all": 0,
+		"count_current": 0
+	}]
+}
