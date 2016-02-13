@@ -1,7 +1,7 @@
 {
 	"objects": [{
 		"name": "application",
-		"count_all": 10,
+		"count_all": 15,
 		"count_current": 5
 	}, {
 		"name": "account",
@@ -11,14 +11,20 @@
 	"relations": [{
 		"rel": {
 			"name": "application_has_account",
-			"src": "application",
-			"target": "account"
+			"src": {
+				"type": "application",
+				"count_all": "100%"
+			},
+			"target": {
+				"type": "account",
+				"count_all": true,
+				"reuse": false
+			}
 		},
-		"constraints": {
+		"count_all": 15,
+		"constraint": {
 			"min": 1,
-			"max": 5,
-			"connect_all_targets": true,
-			"reuse_target": false
+			"max": 5
 		}
 	}]
 }
