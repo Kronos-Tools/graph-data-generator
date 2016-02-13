@@ -30,7 +30,7 @@ describe("TDG test", function () {
 		const structureContent = fs.readFileSync(path.join(fixturesDir, 'test_structure.json'));
 		const structJson = JSON.parse(structureContent);
 
-		tdg.loadStructure(structJson, true);
+		tdg.loadStructure(structJson, volatileDir, true);
 		done();
 
 	});
