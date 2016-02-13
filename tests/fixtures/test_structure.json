@@ -5,8 +5,8 @@
 		"count_current": 5
 	}, {
 		"name": "account",
-		"count_all": 200,
-		"count_current": 100
+		"count_all": 50,
+		"count_current": 50
 	}],
 	"relations": [{
 		"rel": {
@@ -14,11 +14,11 @@
 			"src": "application",
 			"target": "account"
 		},
-		"count_all": 0,
-		"count_current": 0,
 		"constraints": {
-			"min": 5,
-			"max": 380000
+			"min": 1,
+			"max": 5,
+			"connect_all_targets": true,
+			"reuse_target": false
 		}
 	}]
 }
