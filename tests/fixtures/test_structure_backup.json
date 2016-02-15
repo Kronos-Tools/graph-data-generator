@@ -1,0 +1,89 @@
+{
+	"objects": [
+
+		{
+			"name": "application",
+			"count_all": 10,
+
+			"objects": [{
+				"name": "account",
+				"count_all": 50,
+				"relation_name": "application_has_account",
+				"constraint": {
+					"min": 2,
+					"max": 5
+				}
+			}, {
+				"name": "entitlement",
+				"count_all": 200,
+				"relation_name": "application_has_entitlement",
+				"constraint": {
+					"min": 4,
+					"max": 20
+				}
+			}],
+			"relations": [{
+				"rel": {
+					"name": "application_has_entitlement",
+					"src": {
+						"type": "application",
+						"count_all": "100%"
+					},
+					"target": {
+						"type": "entitlement",
+						"count_all": true,
+						"reuse": false
+					}
+				},
+
+				"constraint": {
+					"min": 4,
+					"max": 20
+				}
+			}]
+
+		}
+	],
+	"relations": [{
+		"rel": {
+			"name": "application_has_account",
+			"src": {
+				"type": "application",
+				"count_all": "100%"
+			},
+			"target": {
+				"type": "account",
+				"count_all": true,
+				"reuse": false
+			}
+		},
+		"constraint": {
+			"min": 1,
+			"max": 5
+		}
+	}, , {
+		"rel": {
+			"name": "account_has_entitlement",
+			"src": {
+				"type": "account",
+				"count_all": "100%"
+			},
+			"target": {
+				"type": {
+					"name": "entitlement",
+					"query": [
+						["application_has_account", "target"],
+						["application_has_entitlement", "src"]
+					]
+				},
+				"count_all": true,
+				"reuse": false
+			}
+		},
+
+		"constraint": {
+			"min": 4,
+			"max": 20
+		}
+	}]
+}

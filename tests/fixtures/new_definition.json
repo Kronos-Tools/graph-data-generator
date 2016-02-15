@@ -1,27 +1,33 @@
 {
-	"objects": [{
+	"tdg_flow": [{
+		"type": "VERTEX",
 		"name": "application",
 		"count_all": 10,
-		"objects": [{
+		"tdg_flow": [{
+			"type": "ACTION",
+			"name": "registry_start"
+		}, {
+			"type": "VERTEX",
 			"name": "account",
 			"count_all": 50,
-			"relation_name": "application_has_account",
+			"edge_name": "application_has_account",
 			"constraint": {
 				"min": 2,
 				"max": 9
 			}
 		}, {
+			"type": "VERTEX",
 			"name": "entitlement",
-			"count_all": 200,
-			"relation_name": "application_has_entitlement",
+			"count_all": 190,
+			"edge_name": "application_has_entitlement",
 			"constraint": {
 				"min": 4,
 				"max": 20
 			}
-		}],
-		"relations": [{
+		}, {
+			"type": "EDGE",
+			"name": "account_has_entitlement",
 			"rel": {
-				"name": "account_has_entitlement",
 				"src": {
 					"type": "account",
 					"count_all": "100%"
@@ -32,12 +38,15 @@
 					"reuse": true
 				}
 			},
-			"count_all": 500
+			"count_all": 500,
 			"constraint": {
 				"min": 1,
 				"max": 20
 			}
-		}]
 
+		}, {
+			"type": "ACTION",
+			"name": "registry_clear"
+		}]
 	}]
 }
