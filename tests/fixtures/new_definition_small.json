@@ -2,27 +2,27 @@
 	"tdg_flow": [{
 		"type": "VERTEX",
 		"name": "application",
-		"count_all": 4000,
+		"count_all": 20,
 		"tdg_flow": [{
 			"type": "ACTION",
 			"name": "registry_start"
 		}, {
 			"type": "VERTEX",
 			"name": "account",
-			"count_all": 3000000,
+			"count_all": 200,
 			"edge_name": "application_has_account",
 			"constraint": {
 				"min": 2,
-				"max": 1000
+				"max": 30
 			}
 		}, {
 			"type": "VERTEX",
 			"name": "entitlement",
-			"count_all": 2600000,
+			"count_all": 200,
 			"edge_name": "application_has_entitlement",
 			"constraint": {
 				"min": 4,
-				"max": 4000
+				"max": 20
 			}
 		}, {
 			"type": "EDGE",
@@ -38,10 +38,10 @@
 					"reuse": true
 				}
 			},
-			"count_all": 9000000,
+			"count_all": 2000,
 			"constraint": {
 				"min": 1,
-				"max": 40000
+				"max": 90
 			}
 
 		}, {

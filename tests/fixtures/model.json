@@ -1,0 +1,199 @@
+{
+	"vertices": [{
+		"name": "application",
+		"tdg": {
+			"count_all": 10
+		}
+	}, {
+		"name": "account",
+		"description": "An account of an application",
+		"tdg": {
+			"count_all": 100
+		}
+	}, {
+		"name": "entitlement",
+		"tdg": {
+			"count_all": 500
+		}
+	}, {
+		"name": "identity",
+		"tdg": {
+			"count_all": 150
+		}
+	}, {
+		"name": "role",
+		"tdg": {
+			"count_all": 10
+		},
+		"description": "A role groups entitlements. Entitlements of one role could come from different applications"
+	}, {
+		"name": "role_platform",
+		"tdg": {
+			"count_all": 10
+		},
+		"description": "A role platform describes which entitlements a role could have from which application"
+	}, {
+		"name": "identity_role_line_manager",
+		"tdg": {
+			"count_all": 20
+		}
+	}, {
+		"name": "identity_role_security_officer",
+		"tdg": {
+			"count_all": 10
+		}
+	}, {
+		"name": "identity_role_chief_security_officer",
+		"tdg": {
+			"count_all": 5
+		}
+	}],
+
+
+
+	"edges": [{
+		"name": "application_has_entitlement",
+		"src": {
+			"name": "application"
+		},
+		"target": {
+			"name": "entitlement"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": "*"
+		}
+	}, {
+		"name": "application_has_account",
+		"src": {
+			"name": "application"
+		},
+		"target": {
+			"name": "account"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": "*"
+		}
+	}, {
+		"name": "account_has_entitlement",
+		"src": {
+			"name": "account"
+		},
+		"target": {
+			"name": "entitlement"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": "*"
+		}
+	}, {
+		"name": "account_belongs_to_identity",
+		"src": {
+			"name": "account"
+		},
+		"target": {
+			"name": "identity"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": 1
+		}
+	}, {
+		"name": "manger_manage_employees",
+		"src": {
+			"name": "identity_role_line_manager"
+		},
+		"target": {
+			"name": "identity"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": "*"
+		}
+	}, {
+		"name": "security_officer_is",
+		"src": {
+			"name": "identity_role_security_officer"
+		},
+		"target": {
+			"name": "identity"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": 1
+		}
+	}, {
+		"name": "chief_security_officer_is",
+		"src": {
+			"name": "identity_role_chief_security_officer"
+		},
+		"target": {
+			"name": "identity"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": 1
+		}
+	}, {
+		"name": "chief_security_officer_has_delegates",
+		"src": {
+			"name": "identity_role_chief_security_officer"
+		},
+		"target": {
+			"name": "identity"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": "*"
+		}
+	}, {
+		"name": "role_platform_has_application",
+		"src": {
+			"name": "role_platform"
+		},
+		"target": {
+			"name": "application"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": "*"
+		}
+	}, {
+		"name": "role_platform_has_role",
+		"src": {
+			"name": "role_platform"
+		},
+		"target": {
+			"name": "role"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": "*"
+		}
+	}, {
+		"name": "role_has_entitlement",
+		"src": {
+			"name": "role"
+		},
+		"target": {
+			"name": "entitlement"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": "*"
+		}
+	}, {
+		"name": "role_has_role",
+		"src": {
+			"name": "role"
+		},
+		"target": {
+			"name": "role"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": "*"
+		}
+	}]
+}

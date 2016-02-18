@@ -47,5 +47,10 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "level-browserify": "^1.1.0",
+    "levelgraph": "^1.1.0",
+    "loglevel-mixin": "^1.2.0"
   }
 }

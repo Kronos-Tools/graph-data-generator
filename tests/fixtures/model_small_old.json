@@ -1,0 +1,76 @@
+{
+	"vertices": [{
+		"name": "application",
+		"tdg": {
+			"count_all": 10
+		}
+	}, {
+		"name": "account",
+		"description": "An account of an application",
+		"tdg": {
+			"count_all": 100
+		}
+	}, {
+		"name": "entitlement",
+		"tdg": {
+			"count_all": 500
+		}
+	}],
+
+	"edges": [{
+		"name": "application_has_account",
+		"src": {
+			"name": "application"
+		},
+		"target": {
+			"name": "account"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": "*"
+		},
+		"tdg": {
+			"count_all": 100,
+			"reuse": false,
+			"min": 1,
+			"max": 20
+		}
+	}, {
+		"name": "application_has_entitlement",
+		"src": {
+			"name": "application"
+		},
+		"target": {
+			"name": "entitlement"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": "*"
+		},
+		"tdg": {
+			"count_all": 500,
+			"reuse": false,
+			"min": 1,
+			"max": 90
+		}
+	}, {
+		"name": "account_has_entitlement",
+		"src": {
+			"name": "account"
+		},
+		"target": {
+			"name": "entitlement"
+		},
+		"cardinality": {
+			"min": 1,
+			"max": "*"
+		},
+		"tdg": {
+			"count_all": 500,
+			"reuse": true,
+			"unique": true,
+			"min": 1,
+			"max": 90
+		}
+	}]
+}

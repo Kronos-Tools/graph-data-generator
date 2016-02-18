@@ -25,5 +25,5 @@ if (tdgPreprocessor.loadStructure(structureJson, volatileDir, false)) {
 	const structureContent = fs.readFileSync(path.join(volatileDir, 'prePrcessedGraphDefinition.json'));
 	const structureJson = JSON.parse(structureContent);
 
-	tdgExecuter.loadStructure(structureJson, volatileDir);
+	//tdgExecuter.loadStructure(structureJson, volatileDir);
 }
