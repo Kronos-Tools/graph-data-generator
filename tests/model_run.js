@@ -17,7 +17,8 @@ const volatileDir = path.join(__dirname, 'fixtures', 'volatile');
 
 
 //const structureContent = fs.readFileSync(path.join(fixturesDir, 'test_structure.json'));
-const structureContent = fs.readFileSync(path.join(fixturesDir, 'model_small.json'));
+//const structureContent = fs.readFileSync(path.join(fixturesDir, 'model_small.json'));
+const structureContent = fs.readFileSync(path.join(fixturesDir, 'model_small-highValue.json'));
 const structureJson = JSON.parse(structureContent);
 
 console.log("# Start model parsing");

@@ -2,18 +2,18 @@
 	"vertices": [{
 		"name": "application",
 		"tdg": {
-			"count_all": 10
+			"count_all": 4000
 		}
 	}, {
 		"name": "account",
 		"description": "An account of an application",
 		"tdg": {
-			"count_all": 3000
+			"count_all": 3000000
 		}
 	}, {
 		"name": "entitlement",
 		"tdg": {
-			"count_all": 500
+			"count_all": 1000000
 		}
 	}],
 
@@ -30,10 +30,10 @@
 			"max": "*"
 		},
 		"tdg": {
-			"count_all": 3000,
+			"count_all": 3000000,
 			"reuse_target": false,
 			"min": 1,
-			"max": 500,
+			"max": 20000,
 			"store": true
 		}
 	}, {
@@ -49,10 +49,10 @@
 			"max": "*"
 		},
 		"tdg": {
-			"count_all": 500,
+			"count_all": 1000000,
 			"reuse_target": false,
 			"min": 1,
-			"max": 90,
+			"max": 50000,
 			"store": true
 		}
 	}, {
@@ -71,7 +71,7 @@
 			"max": "*"
 		},
 		"tdg": {
-			"count_all": 5000,
+			"count_all": 20000000,
 			"reuse_target": true,
 			"unique": true,
 			"min": 1,
