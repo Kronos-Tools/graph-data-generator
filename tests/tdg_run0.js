@@ -9,10 +9,8 @@ const tdgModel = tdg.TdgModel();
 const tdgEexecuter = tdg.TdgExecuter();
 const tdgWriterFactory = tdg.TdgWriter;
 
-
 const fs = require('fs');
 const path = require("path");
-const rimraf = require('rimraf');
 
 const fixturesDir = path.join(__dirname, 'fixtures');
 const volatileDir = path.join(__dirname, 'fixtures', 'volatile');
@@ -49,6 +47,8 @@ function createMethods(tdgExecuter) {
 	// Maps the accounts to its parent
 	const idMapper = {};
 
+
+
 	tdgExecuter.getSourceApplicationHasAccount = function (edgeConfig) {
 		const name = 'application_has_account';
 		const sourceEdge = this.registry[name];
@@ -60,6 +60,7 @@ function createMethods(tdgExecuter) {
 				idMapper[val] = appId;
 			});
 		});
+
 		return resArray;
 	};
 

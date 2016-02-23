@@ -1,6 +1,10 @@
 /* jslint node: true, esnext: true */
 "use strict";
 
-const tdgUtil = require('./lib/tdg-util');
+const TdgModel = require('./lib/tdg-model').factory;
+const TdgExecuter = require('./lib/tdg-executer').factory;
+const TdgWriter = require('./lib/tdg-writer').factory;
 
-module.exports.tdgUtil = tdgUtil;
+module.exports.TdgModel = TdgModel;
+module.exports.TdgExecuter = TdgExecuter;
+module.exports.TdgWriter = TdgWriter;

@@ -1,53 +1,34 @@
 {
 	"vertices": [{
-		"name": "application",
-		"tdg": {
-			"count_all": 10
+			"name": "application",
+			"tdg": {
+				"count_all": 20
+			}
+		}, {
+			"name": "account",
+			"description": "An account of an application",
+			"tdg": {
+				"count_all": 100
+			}
+		}, {
+			"name": "entitlement",
+			"tdg": {
+				"count_all": 3000
+			}
+		}, {
+			"name": "identity",
+			"tdg": {
+				"count_all": 250
+			}
+		}, {
+			"name": "role",
+			"tdg": {
+				"count_all": 50
+			},
+			"description": "A role groups entitlements. Entitlements of one role could come from different applications"
 		}
-	}, {
-		"name": "account",
-		"description": "An account of an application",
-		"tdg": {
-			"count_all": 100
-		}
-	}, {
-		"name": "entitlement",
-		"tdg": {
-			"count_all": 500
-		}
-	}, {
-		"name": "identity",
-		"tdg": {
-			"count_all": 150
-		}
-	}, {
-		"name": "role",
-		"tdg": {
-			"count_all": 10
-		},
-		"description": "A role groups entitlements. Entitlements of one role could come from different applications"
-	}, {
-		"name": "role_platform",
-		"tdg": {
-			"count_all": 10
-		},
-		"description": "A role platform describes which entitlements a role could have from which application"
-	}, {
-		"name": "identity_role_line_manager",
-		"tdg": {
-			"count_all": 20
-		}
-	}, {
-		"name": "identity_role_security_officer",
-		"tdg": {
-			"count_all": 10
-		}
-	}, {
-		"name": "identity_role_chief_security_officer",
-		"tdg": {
-			"count_all": 5
-		}
-	}],
+
+	],
 
 
 

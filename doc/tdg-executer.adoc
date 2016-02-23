@@ -1,0 +1,135 @@
+== TDG-Executer
+The executer works on the loaded model an create all the vertices and edges.
+In the first pass it will creates a model which defines the amount of data to be created
+for the different kinds of objects. Then it will create the data.
+
+
+.Options for the Executer
+[source,js]
+----
+{
+  "infoCounter": 100000,  <1>
+	"model": tdgModel,      <2>
+	"writer": tdgWriter,    <3>
+	"start_id": 1000        <4>
+}
+----
+<1> (Optional, default=100000) The info counter is a counter which defines after how much created objects an info should be logged.
+<2> (Optional) The tdgModel. The model could also be set afterwards.
+<3> (Optional) The tdgWriter. The writer could also be set afterwards.
+<4> (Optional, default=0) All the created objects have a unique id. The id is just a number which will be increased for each created object. This is the value the first id will start with.
+
+
+.Example executer setup
+[source,js]
+----
+const fs = require('fs');
+
+const tdg = require('kronos-tdg');
+
+const tdgModel = tdg.TdgModel();
+const tdgEexecuter = tdg.TdgExecuter();
+const tdgWriterFactory = tdg.TdgWriter;
+
+
+const exampleJsonFileContent = fs.readFileSync("/home/tmp/example/json/file.json");
+const modelJson = JSON.parse(exampleJsonFileContent);
+
+// Initialize the model with the configuration
+tdgModel.init(modelJson);
+
+// Create the writer
+const writer = tdgWriterFactory({
+  "targetDir": "/home/tmp/example/tdg"
+});
+
+// Set the model
+tdgEexecuter.model = tdgModel;
+
+// Set the writer
+tdgEexecuter.writer = writer;
+
+// add the custom methods (will be explained later)
+createMethods(tdgEexecuter);
+
+// create the vertices
+tdgEexecuter.createVertices();
+
+// create the edges
+tdgEexecuter.createEdges();
+----
+
+=== Callback functions
+The TDG executer provides some callback functions which could be used for the data creation process.
+
+[source,js]
+----
+/**
+ * Called before the vertex will be created
+ * @param config (object) The configuration of this vertex
+ */
+beforeVertex(config) {}
+
+/**
+ * Called after the vertex was created
+ * @param config (object) The configuration of this vertex
+ */
+afterVertex(config) {}
+
+/**
+ * Called before the edge will be created
+ * @param config (object) The configuration of this edge
+ */
+beforeEdge(config) {}
+
+/**
+ * Called after the edge was created
+ * @param config (object) The configuration of this edge
+ */
+afterEdge(config) {}
+----
+
+
+=== Custom provider functions
+Not all the functionality needed to create the test data graph could be just configured.
+For Example:
+
+* Edge: An application which have accounts.
+* Edge: An application which have entitlements.
+* Edge: An account which have entitlements.
+
+Now there is the problem that the account belongs to application 'A' should only be assigned
+entitlements from application 'A' and not form any other application. To build these
+kind of edges 3 functions are needed which provide these data. These functions needs to
+be created by the user of the TDG.
+
+The function names will be defined in the model JSON.
+
+[source,js]
+----
+/**
+ * This function will be called when the edge 'account_has_entitlement' will
+ * be created.
+ * It will return all the sources of the edge 'account_has_entitlement'.
+ * @param edgeConfig (object) The configuration part of the current edge
+ * @return resArray (array) An array with all account IDs
+ */
+tdgExecuter.getSourceApplicationHasAccount = function (edgeConfig) {
+	const name = 'application_has_account';
+
+	// Get the generated edge data from the internal registry
+	const sourceEdge = this.registry[name];
+	const resArray = [];
+
+	// The keys in the objects object are the application ids
+	Object.keys(sourceEdge.objects).forEach(appId => {
+
+		// each application ID contains an array of account IDs
+		sourceEdge.objects[appId].forEach(val => {
+			resArray.push(val);
+			idMapper[val] = appId;
+		});
+	});
+	return resArray;
+};
+----
