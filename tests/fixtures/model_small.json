@@ -31,10 +31,13 @@
 		},
 		"tdg": {
 			"count_all": 3000,
-			"reuse_target": false,
+			"unique": true,
 			"min": 1,
 			"max": 500,
-			"store": true
+			"store": true,
+			"target": {
+				"elements_per_source": false
+			}
 		}
 	}, {
 		"name": "application_has_entitlement",
@@ -50,32 +53,41 @@
 		},
 		"tdg": {
 			"count_all": 500,
-			"reuse_target": false,
+			"unique": true,
 			"min": 1,
 			"max": 90,
-			"store": true
+			"store": true,
+			"target": {
+				"elements_per_source": false
+			}
 		}
 	}, {
 		"name": "account_has_entitlement",
 		"src": {
-			"name": "account",
-			"path": "application_has_account"
-
+			"name": "application_has_account"
 		},
 		"target": {
-			"name": "entitlement",
-			"path": "application_has_entitlement"
+			"name": "application_has_entitlement"
 		},
 		"cardinality": {
 			"min": 1,
 			"max": "*"
 		},
 		"tdg": {
-			"count_all": 5000,
-			"reuse_target": true,
+			"count_all": 40000,
 			"unique": true,
 			"min": 1,
-			"max": 90
+			"max": 90,
+			"src": {
+				"function": "getSourceApplicationHasAccount"
+			},
+			"target": {
+				"elements_per_source": true,
+				"function": {
+					"elements": "getTargetApplicationHasEntitlement",
+					"amount": "getSourceLengthApplicationHasEntitlement"
+				}
+			}
 		}
 	}]
 }

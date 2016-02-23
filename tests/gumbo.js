@@ -1,24 +1,38 @@
 /* jslint node: true, esnext: true */
 "use strict";
 
-const counter = "100%";
-const objectCount = 50;
 
-let resultCount;
-if (/^\d{1,3}\%$/.test(counter)) {
-	console.log("JA");
-	let val = counter;
-	val.replace("%");
-	val = parseInt(val);
-	if (val <= 100) {
-		// we got a value
-		if (val === 100) {
-			resultCount = val;
-		} else {
-			resultCount = Math.round(objectCount - objectCount * val / 100);
-		}
 
+const res = [];
+
+let printer = 0;
+let counter = 0;
+let sources = 0;
+while (counter < 1000000000) {
+	if (printer === 100000) {
+		printer = 0;
+		console.log(counter);
 	}
-} else {
-	console.log("NEIN");
+	printer++;
+
+
+	const targets = Math.floor((Math.random() * (100)));
+	const target = [];
+	for (let i = 0; i <= targets; i++) {
+		target.push(100000000);
+		counter++;
+	}
+	res.push({
+		"s": sources,
+		"t": target
+	});
+	sources++;
 }
+
+//696 893 174
+
+
+// for (let i = 0; i < 100; i++) {
+// 	console.log(Math.floor((Math.random() * (11))));
+//878 744 019
+// }
