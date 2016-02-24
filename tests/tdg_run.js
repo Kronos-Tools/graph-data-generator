@@ -19,8 +19,8 @@ const volatileDir = path.join(__dirname, 'fixtures', 'volatile');
 
 
 //const structureContent = fs.readFileSync(path.join(fixturesDir, 'test_structure.json'));
-const structureContent = fs.readFileSync(path.join(fixturesDir, 'model_small.json'));
-//const structureContent = fs.readFileSync(path.join(fixturesDir, 'model_small-highValue.json'));
+//const structureContent = fs.readFileSync(path.join(fixturesDir, 'model_small.json'));
+const structureContent = fs.readFileSync(path.join(fixturesDir, 'model_small-highValue.json'));
 const structureJson = JSON.parse(structureContent);
 
 console.log("# Start model parsing");
@@ -36,11 +36,17 @@ const writer = tdgWriterFactory({
 tdgEexecuter.model = tdgModel;
 tdgEexecuter.writer = writer;
 
+
 createMethods(tdgEexecuter);
 
 tdgEexecuter.createVertices();
 tdgEexecuter.createEdges();
 
+const gum = require('../lib/tdg-data-key-fields').factory();
+gum.model = tdgEexecuter.model;
+gum.registry = tdgEexecuter.registry;
+gum.writer = tdgEexecuter.writer;
+gum.createKeyDataEdges();
 
 /**
  * Add the custum functions to the TDG-Executer
