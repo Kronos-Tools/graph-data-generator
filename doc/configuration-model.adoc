@@ -1,4 +1,4 @@
-=== Configuration Model
+== Configuration Model
 This describes the configuration model to create the test data.
 
 

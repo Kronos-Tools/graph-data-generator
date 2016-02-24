@@ -1,4 +1,4 @@
-=== TDG-Executer
+== TDG-Executer
 The executer works on the loaded model an create all the vertices and edges.
 In the first pass it will creates a model which defines the amount of data to be created
 for the different kinds of objects. Then it will create the data.

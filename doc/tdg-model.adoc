@@ -1,4 +1,4 @@
-=== TDG-Model
+== TDG-Model
 
 The model stores the JSON definition for the data creation.
 Additional it will do some very basic checks on the model.
