@@ -108,28 +108,78 @@ The function names will be defined in the model JSON.
 [source,js]
 ----
 /**
- * This function will be called when the edge 'account_has_entitlement' will
- * be created.
- * It will return all the sources of the edge 'account_has_entitlement'.
- * @param edgeConfig (object) The configuration part of the current edge
- * @return resArray (array) An array with all account IDs
+ * Add the custum functions to the TDG-Executer
  */
-tdgExecuter.getSourceApplicationHasAccount = function (edgeConfig) {
-	const name = 'application_has_account';
+function createMethods(tdgExecuter) {
+	// Maps the accounts to its parent
+	// idMapper[accountId] = applicationId
+	const idMapper = {};
 
-	// Get the generated edge data from the internal registry
-	const sourceEdge = this.registry[name];
-	const resArray = [];
+	/**
+	 * This function will be called when the edge 'account_has_entitlement' will
+	 * be created.
+	 * It will return all the sources of the edge 'account_has_entitlement'.
+	 * @param edgeConfig (object) The configuration part of the current edge
+	 * @return resArray (array) An array with all account IDs
+	 */
+	tdgExecuter.getSourceApplicationHasAccount = function (edgeConfig) {
+		const name = 'application_has_account';
+		const sourceEdge = this.registry[name];
+		const resArray = [];
 
-	// The keys in the objects object are the application ids
-	Object.keys(sourceEdge.objects).forEach(appId => {
+		Object.keys(sourceEdge.objects).forEach(appId => {
+			sourceEdge.objects[appId].forEach(val => {
+				resArray.push(val);
 
-		// each application ID contains an array of account IDs
-		sourceEdge.objects[appId].forEach(val => {
-			resArray.push(val);
-			idMapper[val] = appId;
+				// Store which account belongs to which application
+				idMapper[val] = appId;
+			});
 		});
-	});
-	return resArray;
-};
+		return resArray;
+	};
+
+	/**
+	 * This function will be called when the edge 'account_has_entitlement' will
+	 * be created.
+	 * It will return all the potential targets of the edge 'account_has_entitlement' for
+	 * a specific account.
+	 * @param edgeConfig (object) The configuration part of the current edge
+	 * @param accountId (number) The current account ID
+	 * @return resArray (array) An array with all potential entitlement ids
+	 */
+	tdgExecuter.getTargetApplicationHasEntitlement = function (edgeConfig, accountId) {
+		const name = 'application_has_entitlement';
+
+		// Get the generated edge data from the internal registry
+		const sourceEdge = this.registry[name];
+
+		// to get the entitlements we need to know the application
+		const appId = idMapper[accountId];
+
+		const resArray = sourceEdge.objects[appId];
+		return resArray;
+	};
+
+	/**
+	 * This function will be called when the edge 'account_has_entitlement' will
+	 * be created.
+	 * Returns the number of entitlements an application has
+	 * @param edgeConfig (object) The configuration part of the current edge
+	 * @param accountId (number) The current account ID
+	 * @return resNumber (number) The amaount of entitlements this application has
+	 */
+	tdgExecuter.getSourceLengthApplicationHasEntitlement = function (edgeConfig, accountId) {
+		const name = 'application_has_entitlement';
+
+		// Get the generated edge data from the internal registry
+		const sourceEdge = this.registry[name];
+
+		// to get the entitlements we need to know the application
+		const appId = idMapper[accountId];
+
+		// the number of entitlements this application has
+		const resNumber = sourceEdge.objects[appId].length;
+		return resNumber;
+	};
+}
 ----
