@@ -1,4 +1,4 @@
-== TDG-Executer
+=== TDG-Executer
 The executer works on the loaded model an create all the vertices and edges.
 In the first pass it will creates a model which defines the amount of data to be created
 for the different kinds of objects. Then it will create the data.
@@ -25,7 +25,7 @@ for the different kinds of objects. Then it will create the data.
 ----
 const fs = require('fs');
 
-const tdg = require('kronos-tdg');
+const tdg = require('graph-data-generator');
 
 const tdgModel = tdg.TdgModel();
 const tdgEexecuter = tdg.TdgExecuter();

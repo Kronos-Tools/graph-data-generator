@@ -1,9 +1,12 @@
 {
   "name": "graph-data-generator",
   "version": "0.0.0-semantic-release",
-  "description": "Base flow implementation",
+  "description": "Test data generator for graph data",
   "keywords": [
-    "kronos-step"
+    "kronos",
+    "tdg",
+    "graph",
+    "test data"
   ],
   "main": "index.js",
   "scripts": {
@@ -32,16 +35,13 @@
     "rimraf": "^2.5.1",
     "semantic-release": "6.2.0"
   },
-  "contributors": [
-    {
-      "name": "Torsten Link",
-      "email": "torstenlink@gmx.de"
-    },
-    {
-      "name": "Markus Felten",
-      "email": "markus.felten@gmx.de"
-    }
-  ],
+  "contributors": [{
+    "name": "Torsten Link",
+    "email": "torstenlink@gmx.de"
+  }, {
+    "name": "Markus Felten",
+    "email": "markus.felten@gmx.de"
+  }],
   "license": "BSD-2-Clause",
   "config": {
     "commitizen": {
@@ -49,8 +49,6 @@
     }
   },
   "dependencies": {
-    "level-browserify": "^1.1.0",
-    "levelgraph": "^1.1.0",
     "loglevel-mixin": "^1.2.0"
   }
 }

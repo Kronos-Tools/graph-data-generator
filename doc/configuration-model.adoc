@@ -1,0 +1,116 @@
+=== Configuration Model
+This describes the configuration model to create the test data.
+
+
+The following example is the top level of the configuration file.
+
+.Example top level
+[source,js]
+----
+{
+  "vertices": [],  <1>
+  "edges": []      <2>
+}
+----
+<1> An array containing all the vertices definitions
+<2> An array containing all the edges definitions
+
+
+The next example shows the definition for one single vertex.
+
+.Example vertex
+[source,js]
+----
+{
+  "name": "account",          <1>
+  "description": "Any text",  <2>
+  "tdg": {                    <3>
+    "count_all": 100          <4>
+  }
+}
+----
+<1> The name of this vertex. All object names must be unique
+<2> Just a description. for this vertex
+<3> This section contains all configuration parts only needed for the data generation
+<4> The amount of vertices to be created. If you would like to have ten application
+with ten accounts each, then this count must be 100.
+
+
+The next example shows an edge between two vertices.
+.Example edge easy
+[source,js]
+----
+{
+  "name": "application_has_account",  <1>
+  "src": {                            <2>
+    "name": "application"             <3>
+  },
+  "target": {                         <4>
+    "name": "account"                 <5>
+  },
+  "tdg": {                            <6>
+    "count_all": 3000,                <7>
+    "unique": true,                   <8>
+    "min": 1,                         <9>
+    "max": 500,                       <10>
+    "target": {                       <11>
+      "elements_per_source": false    <12>
+    }
+  }
+}
+----
+<1> The name of this edge
+<2> This section contains configuration for the 'Source' side of this edge
+<3> The name of the source vertex
+<4> This section contains configuration for the 'Target' side of this edge
+<5> The name of the target vertex
+<6> This section contains all configuration parts only needed for the data generation
+<7> The amount of edges to be created at all
+<8> Unique means that for each source object a unique target object should be there.
+So if you have 3000 edges of this type you also need 3000 accounts.
+<9> How many accounts an application should have as a minimum.
+<10> How many accounts an application should have as a maximum.
+<11> Configuration part for the target only
+<12> Defines if the target elements are defined per source element. If this was
+true the accounts could be reused per application. That was not expected for this
+edge as an account could not exists in more than one application at the same time.
+
+The next part shows a configuration of an edge with special constraints.
+.Example edge special
+[source,js]
+----
+{                                             <1>
+  "name": "account_has_entitlement",
+  "src": {
+    "name": "application_has_account"
+  },
+  "target": {
+    "name": "application_has_entitlement"
+  },
+  "tdg": {
+    "count_all": 40000,
+    "unique": true,
+    "min": 1,
+    "max": 90,
+    "src": {
+      "function": "getSourceAbc"              <2>
+    },
+    "target": {
+      "elements_per_source": true,            <3>
+      "function": {
+        "elements": "getTargetElementsBCD",   <4>
+        "amount": "getSourceElementCountCDE"  <5>
+      }
+    }
+  }
+}
+----
+<1> The special on this edge is that the source and target objects no vertices but edges.
+<2> A name of a function to be called to get the source objects. In this case the real source objects are the accounts.
+<3> In this example the target object could be assigned to more than one source object. The target is an entitlement.
+The same entitlements could be assigned to more than one account.
+<4> The name of a function to be called to get the target elements. A custom function is needed for this cases
+because an account must only get entitlements coming from the same application the account is assigned to.
+<5> The name of the function returning the amount of source elements.
+
+These functions named in the configuration must be attached to the test data generator before calling the creation methods.

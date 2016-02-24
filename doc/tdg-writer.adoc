@@ -1,4 +1,4 @@
-== TDG-Writer
+=== TDG-Writer
 This module is for writing the generated vertices and edges.
 
 To create a writer object the writer should know in which directory
@@ -16,7 +16,7 @@ the files should be written.
 .Create a writer
 [source,js]
 ----
-const tdgWriterFactory = require('kronos-tdg').TdgWriter;
+const tdgWriterFactory = require('graph-data-generator').TdgWriter;
 
 const writer = tdgWriterFactory({
 	"targetDir": "/home/tmp/tdg"
