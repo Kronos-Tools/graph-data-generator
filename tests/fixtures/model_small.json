@@ -54,6 +54,7 @@
 			"max": "*"
 		},
 		"tdg": {
+			"need_random": false,
 			"count_all": 3000,
 			"unique": true,
 			"min": 1,
@@ -76,10 +77,11 @@
 			"max": "*"
 		},
 		"tdg": {
+			"need_random": false,
 			"count_all": 500,
 			"unique": true,
 			"min": 1,
-			"max": 90,
+			"max": 200,
 			"store": true,
 			"target": {
 				"elements_per_source": false
@@ -98,10 +100,11 @@
 			"max": "*"
 		},
 		"tdg": {
-			"count_all": 40000,
+			"need_random": true,
+			"count_all": 20000,
 			"unique": true,
 			"min": 1,
-			"max": 90,
+			"max": 200,
 			"src": {
 				"function": "getSourceApplicationHasAccount"
 			},

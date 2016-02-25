@@ -30,6 +30,7 @@
 			"max": "*"
 		},
 		"tdg": {
+			"need_random": false,
 			"count_all": 3000000,
 			"reuse_target": false,
 			"min": 1,
@@ -49,6 +50,7 @@
 			"max": "*"
 		},
 		"tdg": {
+			"need_random": false,
 			"count_all": 1000000,
 			"reuse_target": false,
 			"min": 1,
@@ -71,11 +73,21 @@
 			"max": "*"
 		},
 		"tdg": {
+			"need_random": true,
 			"count_all": 20000000,
-			"reuse_target": true,
 			"unique": true,
 			"min": 1,
-			"max": 90
+			"max": 90,
+			"src": {
+				"function": "getSourceApplicationHasAccount"
+			},
+			"target": {
+				"elements_per_source": true,
+				"function": {
+					"elements": "getTargetApplicationHasEntitlement",
+					"amount": "getSourceLengthApplicationHasEntitlement"
+				}
+			}
 		}
 	}]
 }
