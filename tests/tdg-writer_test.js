@@ -36,26 +36,24 @@ describe('adapter-outbound-file: test events', function () {
 		fs.mkdirSync(volatileDir);
 	});
 
-	it('Write simple', function (done) {
+	it('Write simple', function () {
 		const filePath = path.join(volatileDir, 'write_1.json');
 		const obj = {
 			"name": "Herbert",
 			"lastName": "batz"
 		};
 		const stream = fs.createWriteStream(filePath);
-		writer.writeObjectStream(obj, stream);
-
-		// need to wait until the file is written
-		setTimeout(() => {
+		return writer.writeObjectStream(obj, stream).then((val) => {
 			const fileContent = fs.readFileSync(filePath);
 			const resJson = JSON.parse(fileContent);
 
 			assert.deepEqual(obj, resJson);
-			done();
-		}, 100);
+			return Promise.resolve();
+		});
+
 	});
 
-	it('Write edge', function (done) {
+	it('Write edge', function () {
 		const filePath = path.join(volatileDir, 'write_1.json');
 		const obj = {
 			"name": "application_has_entitlement",
@@ -78,16 +76,14 @@ describe('adapter-outbound-file: test events', function () {
 			}
 		};
 		const stream = fs.createWriteStream(filePath);
-		writer.writeObjectStream(obj, stream);
-
-		// need to wait until the file is written
-		setTimeout(() => {
+		return writer.writeObjectStream(obj, stream).then((val) => {
 			const fileContent = fs.readFileSync(filePath);
 			const resJson = JSON.parse(fileContent);
 
 			assert.deepEqual(obj, resJson);
-			done();
-		}, 200);
+			return Promise.resolve();
+		});
+
 	});
 
 

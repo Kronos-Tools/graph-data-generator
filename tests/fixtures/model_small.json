@@ -41,10 +41,6 @@
 		"target": {
 			"name": "account"
 		},
-		"cardinality": {
-			"min": 1,
-			"max": "*"
-		},
 		"tdg": {
 			"need_random": false,
 			"count_all": 3000,
@@ -64,10 +60,6 @@
 		"target": {
 			"name": "entitlement"
 		},
-		"cardinality": {
-			"min": 1,
-			"max": "*"
-		},
 		"tdg": {
 			"need_random": false,
 			"count_all": 500,
@@ -86,10 +78,6 @@
 		},
 		"target": {
 			"name": "application_has_entitlement"
-		},
-		"cardinality": {
-			"min": 5,
-			"max": "*"
 		},
 		"tdg": {
 			"need_random": true,

@@ -32,7 +32,6 @@
 		"tdg": {
 			"need_random": false,
 			"count_all": 3000000,
-			"reuse_target": false,
 			"min": 1,
 			"max": 20000,
 			"store": true
@@ -52,7 +51,6 @@
 		"tdg": {
 			"need_random": false,
 			"count_all": 1000000,
-			"reuse_target": false,
 			"min": 1,
 			"max": 50000,
 			"store": true
