@@ -20,19 +20,11 @@
 			"id_fields": {
 				"account_id": {
 					"header_name": "account",
-					"regex": "[A-Z]{2,4}[a-z]{4,10}",
-					"regex_case_sensitive": true,
+					"faker": "finance.account",
 					"unique": true,
 					"elements_per_source": true
 				}
-			},
-			"fk_fields": {
-				"app_id": {
-					"vertex": "application",
-					"field": "application_id"
-				}
 			}
-
 		}
 	}, {
 		"name": "entitlement",
@@ -61,7 +53,7 @@
 			"max": 500,
 			"store": true,
 			"target": {
-				"elements_per_source": true
+				"elements_per_source": false
 			}
 		}
 	}, {
@@ -96,12 +88,12 @@
 			"name": "application_has_entitlement"
 		},
 		"cardinality": {
-			"min": 1,
+			"min": 5,
 			"max": "*"
 		},
 		"tdg": {
 			"need_random": true,
-			"count_all": 20000,
+			"count_all": 15000,
 			"unique": true,
 			"min": 1,
 			"max": 200,

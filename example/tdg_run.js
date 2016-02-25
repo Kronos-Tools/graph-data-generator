@@ -14,11 +14,10 @@ const fs = require('fs');
 const path = require("path");
 const rimraf = require('rimraf');
 
-const fixturesDir = path.join(__dirname, 'fixtures');
-const volatileDir = path.join(__dirname, 'fixtures', 'volatile');
+const fixturesDir = path.join(__dirname, '../tests/fixtures');
+const volatileDir = path.join(fixturesDir, 'volatile');
 
 
-//const structureContent = fs.readFileSync(path.join(fixturesDir, 'test_structure.json'));
 const structureContent = fs.readFileSync(path.join(fixturesDir, 'model_small.json'));
 //const structureContent = fs.readFileSync(path.join(fixturesDir, 'model_small-highValue.json'));
 const structureJson = JSON.parse(structureContent);
