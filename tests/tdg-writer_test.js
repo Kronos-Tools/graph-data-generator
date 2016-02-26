@@ -22,7 +22,7 @@ const writer = tdgWriterFactory({
 	"targetDir": volatileDir
 });
 
-describe('adapter-outbound-file: test events', function () {
+describe('writer', function () {
 	/**
 	 * Clears the test directory. This is the directory where the files will be written
 	 */
