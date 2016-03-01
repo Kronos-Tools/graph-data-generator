@@ -5,9 +5,10 @@
 			"count_all": 10,
 			"id_fields": {
 				"application_id": {
-					"header_name": "Application ID",
-					"regex": "[1-9]{1,3}-[a-z]{3,8}",
-					"regex_case_sensitive": true,
+					"regex": {
+						"exp": "[1-9]{1,3}-[a-z]{3,8}",
+						"case_sensitive": true
+					},
 					"unique": true
 				}
 			}
@@ -19,13 +20,34 @@
 			"count_all": 3000,
 			"id_fields": {
 				"account_id": {
-					"header_name": "account",
 					"faker": "finance.account",
 					"unique": true,
 					"elements_per_source": true
 				}
 			}
 		}
+	}, {
+		"name": "identity",
+		"tdg": {
+			"count_all": 250,
+			"id_fields": {
+				"user_id": {
+					"faker": "finance.account",
+					"unique": true
+				},
+				"uid2": {
+					"faker": "finance.account",
+					"unique": true
+				},
+				"email": {
+					"faker": "internet.email",
+					"unique": true
+				}
+			}
+		}
+
+
+
 	}, {
 		"name": "entitlement",
 		"tdg": {
@@ -47,7 +69,6 @@
 			"unique": true,
 			"min": 1,
 			"max": 500,
-			"store": true,
 			"target": {
 				"elements_per_source": false
 			}
@@ -66,7 +87,6 @@
 			"unique": true,
 			"min": 1,
 			"max": 200,
-			"store": true,
 			"target": {
 				"elements_per_source": false
 			}
@@ -93,6 +113,28 @@
 				"function": {
 					"elements": "getTargetApplicationHasEntitlement",
 					"amount": "getSourceLengthApplicationHasEntitlement"
+				}
+			}
+		}
+	}, {
+		"name": "account_identity",
+		"src": {
+			"name": "account"
+		},
+		"target": {
+			"name": "identity"
+		},
+		"tdg": {
+			"need_random": true,
+			"count_all": 3000,
+			"unique": false,
+			"min": 1,
+			"max": 1,
+			"target": {
+				"elements_per_source": false,
+				"function": {
+					"elements": "getTargetAccountIdentity",
+					"amount": "getSourceLengthAccountIdentity"
 				}
 			}
 		}

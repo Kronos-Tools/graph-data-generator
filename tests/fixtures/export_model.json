@@ -1,0 +1,75 @@
+{
+	"identiy": {
+		"file_name": "identiy.csv",
+		"exporter": "default",
+		"header_names": ["name prefix", "email", "title", "phone", "first name", "second name", "initials", "last name",
+			"branch name", "org1", "city", "org2", "zip", "org3", "country", "org4", "org5", "org6", "function", "cost center",
+			"cost center name", "structure code", "structure path", "user id", "mail acc id", "login id", "legitimation id",
+			"action", "action2", "is external", "user_id 2", "manager"
+		],
+		"column_order": ["np", "mail"],
+		"columns": {
+			"np": {
+				"faker": "name.prefix"
+			},
+			"mail": {
+				"tdg": "email",
+				"unique": true
+			},
+			"title": {
+				"faker": "name.title"
+			},
+			"phone": {
+				"faker": "phone.phoneNumber"
+			},
+			"first_name": {
+				"tdg": "first_name"
+			},
+			"last_name": {
+				"tdg": "last_name"
+			},
+			"branch": {
+				"faker": "company.companyName"
+			},
+			"city": {
+				"faker": "address.city"
+			},
+			"zip": {
+				"faker": "address.zipCode"
+			},
+			"country": {
+				"faker": "address.country"
+			},
+			"function": {
+				"faker": "name.jobTitle"
+			},
+			"cost_center": {
+				"faker": {
+					"function": "random.number",
+					"option": {
+						"min": 1000000000,
+						"max": 9999999999
+					}
+				}
+			},
+			"cost_center_name": {
+				"faker": "commerce.department"
+			},
+			"structure_code": {
+				"faker": {
+					"function": "helpers.replaceSymbols",
+					"option": "A_#####"
+				}
+			}
+
+			"second_name": {},
+			"initials": {},
+			"org1": {},
+			"org2": {},
+			"org3": {},
+			"org4": {},
+			"org5": {},
+			"org6": {},
+		}
+	}
+}

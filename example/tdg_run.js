@@ -15,7 +15,7 @@ const path = require("path");
 const rimraf = require('rimraf');
 
 const fixturesDir = path.join(__dirname, '../tests/fixtures');
-const volatileDir = path.join(fixturesDir, 'volatile');
+const volatileDir = path.join(fixturesDir, '../tests/volatile');
 
 
 const structureContent = fs.readFileSync(path.join(fixturesDir, 'model_small.json'));
@@ -29,7 +29,7 @@ console.log("# Start executer");
 
 // Set the model to the executer
 const writer = tdgWriterFactory({
-	"targetDir": volatileDir
+	"target_dir": volatileDir
 });
 
 tdgExecuter.model = tdgModel;
@@ -117,4 +117,52 @@ function createMethods(tdgExecuter) {
 		const resNumber = sourceEdge.objects[appId].length;
 		return resNumber;
 	};
+
+
+
+	/**
+	 * This function will be called when the edge 'account_has_entitlement' will
+	 * be created.
+	 * It will return all the potential targets of the edge 'account_has_entitlement' for
+	 * a specific account.
+	 * @param edgeConfig (object) The configuration part of the current edge
+	 * @param accountId (number) The current account ID
+	 * @return resArray (array) An array with all potential entitlement ids
+	 */
+	tdgExecuter.getTargetAccountIdentity = function (edgeConfig, accountId) {
+		const name = 'identity';
+
+		// Get the generated edge data from the internal registry
+		const vertex = this.registry[name];
+
+		const sMin = vertex.min_id;
+		const sMax = vertex.max_id;
+
+		const resArray = this.createArrayFromRange(sMin, sMax);
+		return resArray;
+	};
+
+	/**
+	 * This function will be called when the edge 'account_has_entitlement' will
+	 * be created.
+	 * Returns the number of entitlements an application has
+	 * @param edgeConfig (object) The configuration part of the current edge
+	 * @param accountId (number) The current account ID
+	 * @return resNumber (number) The amaount of entitlements this application has
+	 */
+	tdgExecuter.getSourceLengthAccountIdentity = function (edgeConfig, accountId) {
+		const name = 'identity';
+
+		// Get the generated edge data from the internal registry
+		const vertex = this.registry[name];
+
+		const sMin = vertex.min_id;
+		const sMax = vertex.max_id;
+
+		// the number of entitlements this application has
+		const resNumber = sMax - sMin;
+		return resNumber;
+	};
+
+
 }
