@@ -1,0 +1,109 @@
+{
+	"vertices": [{
+		"name": "application",
+		"tdg": {
+			"count_all": 10
+		}
+	}, {
+		"name": "account",
+		"description": "An account of an application",
+		"tdg": {
+			"count_all": 3000
+		}
+	}, {
+		"name": "identity",
+		"tdg": {
+			"count_all": 250
+		}
+	}, {
+		"name": "entitlement",
+		"tdg": {
+			"count_all": 500
+		}
+	}],
+
+	"edges": [{
+		"name": "application_has_account",
+		"src": {
+			"name": "application"
+		},
+		"target": {
+			"name": "account"
+		},
+		"tdg": {
+			"need_random": false,
+			"count_all": 3000,
+			"unique": true,
+			"min": 1,
+			"max": 500,
+			"target": {
+				"elements_per_source": false
+			}
+		}
+	}, {
+		"name": "application_has_entitlement",
+		"src": {
+			"name": "application"
+		},
+		"target": {
+			"name": "entitlement"
+		},
+		"tdg": {
+			"need_random": false,
+			"count_all": 500,
+			"unique": true,
+			"min": 1,
+			"max": 200,
+			"target": {
+				"elements_per_source": false
+			}
+		}
+	}, {
+		"name": "account_has_entitlement",
+		"src": {
+			"name": "account"
+		},
+		"target": {
+			"name": "entitlement"
+		},
+		"tdg": {
+			"need_random": true,
+			"count_all": 15000,
+			"unique": true,
+			"min": 1,
+			"max": 200,
+			"src": {
+				"function": "getSourceApplicationHasAccount"
+			},
+			"target": {
+				"elements_per_source": true,
+				"function": {
+					"elements": "getTargetApplicationHasEntitlement",
+					"amount": "getSourceLengthApplicationHasEntitlement"
+				}
+			}
+		}
+	}, {
+		"name": "account_identity",
+		"src": {
+			"name": "account"
+		},
+		"target": {
+			"name": "identity"
+		},
+		"tdg": {
+			"need_random": true,
+			"count_all": 3000,
+			"unique": false,
+			"min": 1,
+			"max": 1,
+			"target": {
+				"elements_per_source": false,
+				"function": {
+					"elements": "getTargetAccountIdentity",
+					"amount": "getSourceLengthAccountIdentity"
+				}
+			}
+		}
+	}]
+}

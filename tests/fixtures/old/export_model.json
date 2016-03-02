@@ -1,13 +1,20 @@
 {
 	"identiy": {
-		"file_name": "identiy.csv",
-		"exporter": "default",
-		"header_names": ["name prefix", "email", "title", "phone", "first name", "second name", "initials", "last name",
-			"branch name", "org1", "city", "org2", "zip", "org3", "country", "org4", "org5", "org6", "function", "cost center",
-			"cost center name", "structure code", "structure path", "user id", "mail acc id", "login id", "legitimation id",
-			"action", "action2", "is external", "user_id 2", "manager"
+		"sources": [
+			"identity"
 		],
-		"column_order": ["np", "mail"],
+		"exports": {
+			"identity": {
+				"file_name": "identiy.csv",
+				"exporter": "default",
+				"header": ["name prefix", "email", "title", "phone", "first name", "last name",
+					"branch name", "city", "zip", "country", "function", "cost center", "structure code"
+				],
+				"fields": ["np", "mail", "title", "phone", "first_name", "last_name", "branch", "city", "zip", "country",
+					"function", "cost_center", "structure_code"
+				]
+			}
+		},
 		"columns": {
 			"np": {
 				"faker": "name.prefix"
@@ -61,15 +68,6 @@
 					"option": "A_#####"
 				}
 			}
-
-			"second_name": {},
-			"initials": {},
-			"org1": {},
-			"org2": {},
-			"org3": {},
-			"org4": {},
-			"org5": {},
-			"org6": {},
 		}
 	}
 }

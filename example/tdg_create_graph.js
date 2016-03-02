@@ -6,7 +6,7 @@
 const tdg = require('../index');
 
 const tdgModel = tdg.TdgModel();
-const tdgExecuter = tdg.TdgExecuterData();
+const tdgExecuter = tdg.TdgExecuter();
 const tdgWriterFactory = tdg.TdgWriter;
 
 
@@ -15,17 +15,13 @@ const path = require("path");
 const rimraf = require('rimraf');
 
 const fixturesDir = path.join(__dirname, '../tests/fixtures');
-const volatileDir = path.join(fixturesDir, '../tests/volatile');
+const volatileDir = path.join(__dirname, '../tests/volatile');
 
 
-const structureContent = fs.readFileSync(path.join(fixturesDir, 'model_small.json'));
-//const structureContent = fs.readFileSync(path.join(fixturesDir, 'model_small-highValue.json'));
+const structureContent = fs.readFileSync(path.join(fixturesDir, 'model_graph.json'));
 const structureJson = JSON.parse(structureContent);
 
-console.log("# Start model parsing");
 tdgModel.init(structureJson);
-
-console.log("# Start executer");
 
 // Set the model to the executer
 const writer = tdgWriterFactory({
@@ -35,12 +31,16 @@ const writer = tdgWriterFactory({
 tdgExecuter.model = tdgModel;
 tdgExecuter.writer = writer;
 
-
+/**
+ * Add the custom methods needed to provide data for the TDG
+ */
 createMethods(tdgExecuter);
 
+// Create all the vertices
 tdgExecuter.createVertices();
+
+// create all the edges
 tdgExecuter.createEdges();
-tdgExecuter.createKeyDataEdges();
 
 
 /**

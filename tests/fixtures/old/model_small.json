@@ -39,9 +39,18 @@
 					"faker": "finance.account",
 					"unique": true
 				},
-				"email": {
-					"faker": "internet.email",
+				"mail": {
+					"tdg": {
+						"function": "email",
+						"domainName": "gumbo.com"
+					},
 					"unique": true
+				},
+				"fn": {
+					"tdg": "first_name"
+				},
+				"ln": {
+					"tdg": "last_name"
 				}
 			}
 		}

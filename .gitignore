@@ -10,3 +10,4 @@ out
 .test
 .tmp
 tests/fixtures/volatile
+tests/volatile

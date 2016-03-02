@@ -52,6 +52,8 @@
     }
   },
   "dependencies": {
+    "csv-write-stream": "^1.0.0",
+    "deepmerge": "^0.2.10",
     "faker": "^3.0.1",
     "loglevel-mixin": "^1.2.0",
     "randexp": "^0.4.2"
