@@ -1,4 +1,30 @@
 {
+	"account": {
+		"sources": [
+			"application",
+			"account",
+			"entitlement",
+			"identity"
+		],
+		"exports": {
+			"xxx": {
+				"file_name": "identiy.csv",
+				"exporter": "exporterCsv",
+				"header": ["name prefix", "email", "title", "phone", "first name", "last name",
+					"branch name", "city", "zip", "country", "function", "cost center", "structure code"
+				],
+				"fields": ["np", "mail", "title", "phone", "first_name", "last_name", "branch", "city", "zip", "country",
+					"function", "cost_center", "structure_code"
+				]
+			}
+		},
+		"columns": {
+			""
+		}
+	}
+
+
+
 	"identiy": {
 		"sources": [
 			"identity"
