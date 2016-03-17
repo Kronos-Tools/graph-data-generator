@@ -1,4 +1,4 @@
-== TDG-Model
+== TDG Model
 
 The model stores the loaded JSON configuration for the "model" and the "key data".
 

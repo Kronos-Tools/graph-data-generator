@@ -1,4 +1,4 @@
-== TDG-Writer
+== TDG Writer
 This module is for writing the generated vertices and edges.
 
 To create a writer object the writer should know in which directory

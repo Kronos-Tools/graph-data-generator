@@ -34,17 +34,60 @@ So first create all the necessary IDs and enrich the already created edges with 
 Then separate data files in the applications specific format may be created containing
 only the ID values.
 
+== Overview
+
+The following image shows the base components of the data generator
+
+
+.Component Overview
+image::./images/Components.png[]
+
+
+
+.Component interaction
+image::./images/Usage.png[]
+
+
+== Configuration
+
+:leveloffset: 1
+
 include::./config-model.adoc[]
 
 include::./config-key-data.adoc[]
 
 include::./config-exporter.adoc[]
 
+:leveloffset: - 1
 
+== Model and key data
 
+:leveloffset: 1
 
-include::.tdg-model.adoc[]
+include::./tdg-model.adoc[]
 
-include::./tdg-executer.adoc[]
+include::./tdg-executer-data.adoc[]
 
 include::./tdg-writer.adoc[]
+
+:leveloffset: - 1
+
+== Data generators
+
+:leveloffset: 1
+
+include::./tdg-generator-dispatcher.adoc[]
+
+include::./tdg-generator-modules.adoc[]
+
+:leveloffset: - 1
+
+== Exporter
+
+:leveloffset: 1
+
+include::./tdg-exporter.adoc[]
+
+include::./tdg-exporter-modules.adoc[]
+
+:leveloffset: - 1

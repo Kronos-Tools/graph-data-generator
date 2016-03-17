@@ -1,0 +1,48 @@
+== TDG Exporter
+The exporter is used to write the created data to a file.
+
+.Options for the DataGenerator
+[source,js]
+----
+{
+  "model": JSON.parse(fs.readFileSync("/tmp/export.json")),        <1>
+  "target_dir": "/tmp/data"                                        <2>
+  "data_generator": tdgDataGeneratorDispatcher,                    <3>
+  "exporter": {                                                    <4>
+    "tdg-exporter-csv" : csvExporter                               <5>
+  }
+}
+----
+<1> The exporter configuration JSON
+<2> The directory to store the generated files
+<3> The data generator dispatcher
+<4> An object with all the exporter modules
+<5> As an example the CSV file exporter
+
+=== Write an own exporter
+The export would be special for each user. So it may be common that most of the time
+a own exporter needs to be created.
+
+.Example generator skeleton
+[source,js]
+----
+class ExampleWriter {
+	/**
+	 * Initializes the custom writer
+	 * @param exporter (object) The exporter object
+	 * @param config (object) The exporter configuration
+	 */
+	constructor(exporter, config) {
+		this.config = config;
+	}
+	/**
+	 * writes the chunk data or parts of it
+	 * @param chunk (object) The chunk data
+	 */
+	write(chunk) {}
+	/**
+	 * Closes the writer
+	 */
+	close() {}
+}
+----

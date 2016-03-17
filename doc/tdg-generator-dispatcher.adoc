@@ -20,7 +20,6 @@ generator modules.
 <2> The "faker" generator.
 
 
-
 === Write an own generator
 You could write your own generator and add it to the dispatcher.
 So it could be used as a normal generator

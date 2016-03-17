@@ -1,4 +1,4 @@
-== TDG-Executer-Data
+== TDG Executer Data
 The tdg-executer-data class extends the tdg-executer class. It only adds the possibility
 to create the "key data".
 
