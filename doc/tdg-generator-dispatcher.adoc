@@ -1,0 +1,46 @@
+== TDG Generator Dispatcher
+This module is used be the "tdg-executer-data" and "tdg-exporter" to generate the data.
+But it does not generate the data itself it just dispatches the request to the registered
+generator modules.
+
+
+.Options for the DataGenerator
+[source,js]
+----
+{
+  "custom_generators": {     <1>
+    "faker": datGenFaker,    <2>
+    "regex": datGenRegex,
+    "tdg": datGenTdg,
+    "entitlement": datGenEntitlement
+  }
+}
+----
+<1> The section to provide the generators.
+<2> The "faker" generator.
+
+
+
+=== Write an own generator
+You could write your own generator and add it to the dispatcher.
+So it could be used as a normal generator
+
+
+.Example generator skeleton
+[source,js]
+----
+class ExampleGenerator {
+  constructor(config) {
+    this.config = config;
+  }
+  /**
+   * writes the chunk data or parts of it
+   * @param fieldConfig (object) The generator configuration
+   * @param dataContext (object) This context is active for the whole generation process. This could be used to make data unique
+   * @param chunkContext (object) This context is is active for one chunk (row) of data
+   * @param dispatcher (object) This calling generator dispatcher
+   * @return val (string, number) The generated data
+   */
+  createValue(fieldConfig, dataContext, chunkContext, dispatcher) {}
+}
+----

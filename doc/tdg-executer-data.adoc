@@ -1,0 +1,178 @@
+== TDG-Executer-Data
+The tdg-executer-data class extends the tdg-executer class. It only adds the possibility
+to create the "key data".
+
+The executer works on the loaded model an create all the vertices and edges.
+For each vertex and edge an id will be created.
+The default is that the ID will start with "0" and will be increased for each object.
+
+Than it will write JSON files with this created IDs. These files could be used to restart the
+process from this position on. So if there is an failure in creating the key data, the base data
+does not have to be created again.
+
+For smaller amount of data this is no issue. But for bigger ones it is a good thing that it must not be
+started from the beginning.
+
+After that the "key data" will be generated. This will also be written to files.
+
+.Options for the Executer
+[source,js]
+----
+{
+  "infoCounter": 100000,  <1>
+	"model": tdgModel,      <2>
+	"writer": tdgWriter,    <3>
+	"start_id": 1000        <4>
+  "dataGenerator" : tdgDataGeneratorDispatcher  <5>
+  "functions" : {         <6>
+    "myFunc": getDataForWhatEver
+  }
+}
+----
+<1> (Optional, default=100000) The info counter is a counter which defines after how much created objects an info should be logged.
+<2> (Optional) The tdgModel. The model could also be set afterwards.
+<3> (Optional) The tdgWriter. The writer could also be set afterwards.
+<4> (Optional, default=0) All the created objects have a unique id. The id is just a number which will be increased for each created object. This is the value the first id will start with.
+<5> The datagenerator to be used to create the "key data" values
+<6> Object hash with the custom provider functions
+
+
+
+
+
+=== Custom provider functions
+Not all the functionality needed to create the test data graph could be just configured.
+For Example:
+
+* Edge: An application which have accounts.
+* Edge: An application which have entitlements.
+* Edge: An account which have entitlements.
+
+Now there is the problem that the account belongs to application 'A' should only be assigned
+entitlements from application 'A' and not form any other application. To build these
+kind of edges 3 functions are needed which provide these data. These functions needs to
+be created by the user of the TDG.
+
+The function names will be defined in the model JSON.
+
+[source,js]
+----
+/**
+ * This function will be called when the edge 'account_has_entitlement' will
+ * be created.
+ * It will return all the sources of the edge 'account_has_entitlement'.
+ * @param tdg (object) The TestDataGenerator object
+ * @param edgeConfig (object) The configuration part of the current edge
+ * @return resArray (array) An array with all account IDs
+ */
+const getSourceApplicationHasAccount = function (tdg, edgeConfig) {
+	const name = 'application_has_account';
+	const sourceEdge = tdg.registry[name];
+	const resArray = [];
+
+	Object.keys(sourceEdge.objects).forEach(appId => {
+		sourceEdge.objects[appId].forEach(val => {
+			resArray.push(val);
+
+			// Store which account belongs to which application
+			idMapper[val] = appId;
+		});
+	});
+	return resArray;
+};
+
+/**
+ * This function will be called when the edge 'account_has_entitlement' will
+ * be created.
+ * It will return all the potential targets of the edge 'account_has_entitlement' for
+ * a specific account.
+ * @param tdg (object) The TestDataGenerator object
+ * @param edgeConfig (object) The configuration part of the current edge
+ * @param accountId (number) The current account ID
+ * @return resArray (array) An array with all potential entitlement ids
+ */
+const getTargetApplicationHasEntitlement = function (tdg, edgeConfig, accountId) {
+	const name = 'application_has_entitlement';
+
+	// Get the generated edge data from the internal registry
+	const sourceEdge = tdg.registry[name];
+
+	// to get the entitlements we need to know the application
+	const appId = idMapper[accountId];
+
+	const resArray = sourceEdge.objects[appId];
+	return resArray;
+};
+
+/**
+ * This function will be called when the edge 'account_has_entitlement' will
+ * be created.
+ * Returns the number of entitlements an application has
+ * @param tdg (object) The TestDataGenerator object
+ * @param edgeConfig (object) The configuration part of the current edge
+ * @param accountId (number) The current account ID
+ * @return resNumber (number) The amaount of entitlements this application has
+ */
+const getSourceLengthApplicationHasEntitlement = function (tdg, edgeConfig, accountId) {
+	const name = 'application_has_entitlement';
+
+	// Get the generated edge data from the internal registry
+	const sourceEdge = tdg.registry[name];
+
+	// to get the entitlements we need to know the application
+	const appId = idMapper[accountId];
+
+	// the number of entitlements this application has
+	const resNumber = sourceEdge.objects[appId].length;
+	return resNumber;
+};
+
+
+
+/**
+ * This function will be called when the edge 'account_has_entitlement' will
+ * be created.
+ * It will return all the potential targets of the edge 'account_has_entitlement' for
+ * a specific account.
+ * @param tdg (object) The TestDataGenerator object
+ * @param edgeConfig (object) The configuration part of the current edge
+ * @param accountId (number) The current account ID
+ * @return resArray (array) An array with all potential entitlement ids
+ */
+const getTargetAccountIdentity = function (tdg, edgeConfig, accountId) {
+	const name = 'identity';
+
+	// Get the generated edge data from the internal registry
+	const vertex = tdg.registry[name];
+
+	const sMin = vertex.min_id;
+	const sMax = vertex.max_id;
+
+	const resArray = tdg.createArrayFromRange(sMin, sMax);
+	return resArray;
+};
+
+/**
+ * This function will be called when the edge 'account_has_entitlement' will
+ * be created.
+ * Returns the number of entitlements an application has
+ * @param tdg (object) The TestDataGenerator object
+ * @param edgeConfig (object) The configuration part of the current edge
+ * @param accountId (number) The current account ID
+ * @return resNumber (number) The amaount of entitlements this application has
+ */
+const getSourceLengthAccountIdentity = function (tdg, edgeConfig, accountId) {
+	const name = 'identity';
+
+	// Get the generated edge data from the internal registry
+	const vertex = tdg.registry[name];
+
+	const sMin = vertex.min_id;
+	const sMax = vertex.max_id;
+
+	// the number of entitlements this application has
+	const resNumber = sMax - sMin;
+	return resNumber;
+};
+
+----

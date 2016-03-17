@@ -16,7 +16,7 @@ the files should be written.
 .Create a writer
 [source,js]
 ----
-const tdgWriterFactory = require('graph-data-generator').TdgWriter;
+const tdgWriterFactory = require('graph-data-generator').tdgWriterFactory;
 
 const writer = tdgWriterFactory({
 	"targetDir": "/home/tmp/tdg"

@@ -1,0 +1,60 @@
+== Configuration for exporting the data
+This configuration describes how to export the data.
+
+
+The following example shows the definition for an data export
+
+.Example config
+[source,js]
+----
+{
+  "identity": {                          <1>
+    "exporter": [{                       <2>
+      "type": "tdg-exporter-csv",        <3>
+      "file_name": "identiy.csv",        <4>
+      "header": ["name prefix", "email", "title", "phone", "first name", "last name",
+        "branch name", "city", "zip", "country", "function", "cost center", "structure code"
+      ],                                 <5>
+      "fields": ["np", "mail", "title", "phone", "first_name", "last_name", "branch", "city", "zip", "country",
+        "function", "cost_center", "structure_code"
+      ],                                 <6>
+      "seperator": ";",                  <7>
+      "newline": "\n"                    <8>
+    }],
+    "data": {                            <9>
+      "sources": [                       <10>
+        "identity"                       <11>
+      ],
+      "columns": {                       <12>
+        "np": {                          <13>
+          "type": "faker",               <14>
+          "function": "name.prefix"      <15>
+        },
+        "mail": {                        <16>
+          "type": "tdg",
+          "function": "email",
+          "unique": true
+        }
+      }
+    }
+  }
+}
+----
+<1> A name identifying this export
+<2> An array of exporter to use. For example: The identities will be exported in two files.
+One for each employee and one file containing all the managers. The configuration entries for each exporter are
+defined by the exporter. So they will be different for each exporter type.
+<3> The type of the exporter to use. In this case a CSV file exporter.
+<4> The file name to store the data.
+<5> The header to print into the file.
+<6> The internal field names.
+<7> The separator between the fields
+<8> Which new line char to use
+<9> The data section describes where the data comes from
+<10> The sources are the name of the objects the data comes from. The name of the vertices.
+<11> In this case only one vertices is used for the export
+<12> The columns defines all fields and how to create the data for each field.
+<13> The name of a field.
+<14> The type of the data generator to use for creating the data for this field.
+<15> This attribute is specific for the chosen generator.
+<16> definition of the next field.

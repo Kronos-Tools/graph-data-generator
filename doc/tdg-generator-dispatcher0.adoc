@@ -1,0 +1,83 @@
+== TDG Generator Modules
+Describes the parameters for each generator module.
+
+=== entitlement
+This generator is designed to create strings looking like entitlements of applications.
+
+.Options for the entitlement generator
+[source,js]
+----
+{
+  "unique" : true,    <1>
+  "max_length" : 230  <2>
+}
+----
+<1> If true, the generated strings are unique.
+<2> The max length of characters of the created entitlement.
+
+=== faker
+This generator uses the "faker" npm module to create values. For more information please visit
+https://www.npmjs.com/package/faker
+
+.Options for the faker generator
+[source,js]
+----
+{
+  "unique" : true,                 <1>
+  "function" : "company.suffixes"  <2>
+  "option" : {"val" : "1"}         <3>
+}
+----
+<1> If true, the generated strings are unique.
+<2> The faker function name.
+<3> Any options for the faker function. Please see the faker documentation for it.
+
+
+=== regex
+This generator takes a regular expression and generates data matching the given regular expression.
+The genrator uses the "randexp" npm module. For more information please visit
+https://www.npmjs.com/package/randexp
+
+.Options for the regex generator
+[source,js]
+----
+{
+  "unique" : true,           <1>
+  "exp" : "\d{1,5}"          <2>
+  "case_sensitive" : true    <3>
+}
+----
+<1> If true, the generated strings are unique.
+<2> The regular expression.
+<3> If true the regex is flagged as case sensitive
+
+
+=== tdg
+The generator
+
+.Options for the tdg generator
+[source,js]
+----
+{
+  "unique" : true              <1>
+  "function" : "createEmail"   <2>
+  "domainName" : "gumbo.org"   <3>
+}
+----
+<1> If true, the generated strings are unique.
+<2> The name of the function to execute.
+<3> only for email. The domain of the email to use
+
+The TDG generator supports the following functions:
+
+* createEmail +
+  Creates an email address.
+
+* createFirstName
+  Creates a first name.
+
+* createLastName
+  Creates a last name.
+
+What is special here, is that the email will be build out of first name and last name. That is the only difference
+to the faker module.

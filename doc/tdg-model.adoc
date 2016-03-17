@@ -1,10 +1,14 @@
 == TDG-Model
 
-The model stores the JSON definition for the data creation.
-Additional it will do some very basic checks on the model.
+The model stores the loaded JSON configuration for the "model" and the "key data".
 
 .Create a TDG-Model
 [source,js]
 ----
-const tdgModel = require('graph-data-generator').TdgModel();
+const tdgModel = require('graph-data-generator').tdgModelFactory();
+
+// stores the data
+tdgModel.init(jsonConfigModelData);
+
+tdgModel.init(jsonConfigKeyData);
 ----

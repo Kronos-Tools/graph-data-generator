@@ -1,5 +1,6 @@
 == Configuration Model
-This describes the configuration model to create the test data.
+This configuration describes the graph to be created. It contains all the vertices
+and the edges. Also how many of each should be created
 
 
 The following example is the top level of the configuration file.
@@ -37,6 +38,7 @@ with ten accounts each, then this count must be 100.
 
 
 The next example shows an edge between two vertices.
+
 .Example edge easy
 [source,js]
 ----
@@ -76,6 +78,7 @@ true the accounts could be reused per application. That was not expected for thi
 edge as an account could not exists in more than one application at the same time.
 
 The next part shows a configuration of an edge with special constraints.
+
 .Example edge special
 [source,js]
 ----

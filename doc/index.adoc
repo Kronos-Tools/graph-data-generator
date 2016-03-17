@@ -1,4 +1,4 @@
-= Graph Data Generator
+= Test Data Generator
 
 The idea behind the Test Data Generator is to create test data in a kind of graph format.
 Most applications needs test data which is related to each other.
@@ -34,7 +34,14 @@ So first create all the necessary IDs and enrich the already created edges with 
 Then separate data files in the applications specific format may be created containing
 only the ID values.
 
-include::./configuration-model.adoc[]
+include::./config-model.adoc[]
+
+include::./config-key-data.adoc[]
+
+include::./config-exporter.adoc[]
+
+
+
 
 include::.tdg-model.adoc[]
 
