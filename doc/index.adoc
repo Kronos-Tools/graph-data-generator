@@ -17,7 +17,7 @@ this TDG is created for is about:
 
 .Quantity structure this TDG is made for
 ----
-		 4.000 Applications
+     4.000 Applications
  3.000.000 Accounts
  1.000.000 Entitlements
 20.000.000 relations between Accounts and entitlements
@@ -47,6 +47,11 @@ image::./images/Components.png[]
 .Component interaction
 image::./images/Usage.png[]
 
+:leveloffset: 1
+
+include::./main.adoc[]
+
+:leveloffset: - 1
 
 == Configuration
 
