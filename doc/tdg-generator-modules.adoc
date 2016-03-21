@@ -70,13 +70,16 @@ The generator
 
 The TDG generator supports the following functions:
 
-* createEmail +
+* fix_value +
+  Takes the value from the "option" attribute and writes it to the field
+
+* email +
   Creates an email address.
 
-* createFirstName
+* first_name
   Creates a first name.
 
-* createLastName
+* last_name
   Creates a last name.
 
 What is special here, is that the email will be build out of first name and last name. That is the only difference

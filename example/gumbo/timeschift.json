@@ -1,0 +1,42 @@
+{
+	"timeshift": {
+		"config": {
+			"iterations": 300,
+			"functions": {
+				"application": {
+					"add": "<App add function>",
+					"remove": "<App remove function>",
+					"change": "<App change function>"
+				}
+			}
+		},
+		"data": {
+			"application": {
+				"start": 5,
+				"while": {
+					"add": 5,
+					"remove": 4
+				},
+				"end": 7
+			},
+			"account": {
+				"start": 500,
+				"while": {
+					"add": 500,
+					"remove": 200,
+					"recur": 100,
+					"change_on_iteration": "10%"
+				},
+				"end": 800
+			},
+			"account_has_entitlement": {
+				"start": 500,
+				"while": {
+					"add": 500,
+					"remove": 200
+				},
+				"end": 800
+			}
+		}
+	}
+}

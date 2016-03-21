@@ -1,0 +1,39 @@
+{
+	"name": "application",
+	"tdg": {
+		"count_all": 10
+	},
+	"min_id": 0,
+	"max_id": 9,
+	"type": "vertex",
+	"time_shift": [
+		["10", "11", "12"], {
+			"add": ["13", "14", "15"],
+			"change": ["10", "11"],
+			"remove": ["12"]
+		}
+	],
+	"objects": {
+		"10": {
+			"app_id": "466-FioZyzc"
+		},
+		"11": {
+			"app_id": "1-vWlqGTU"
+		},
+		"12": {
+			"app_id": "178-lZJJfVx"
+		},
+		"13": {
+			"app_id": "1-rfoQIqvS"
+		},
+		"14": {
+			"app_id": "3-FNMtZ"
+		},
+		"15": {
+			"app_id": "8-cScvJmGo"
+		},
+		"16": {
+			"app_id": "982-qzYBkm"
+		}
+	}
+}
