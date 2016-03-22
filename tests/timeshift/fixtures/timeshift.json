@@ -1,7 +1,7 @@
 {
 	"timeshift": {
 		"config": {
-			"iterations": 300,
+			"iterations": 30,
 			"functions": {
 				"add": "<App add function>",
 				"remove": "<App remove function>",
@@ -23,8 +23,7 @@
 						"while": {
 							"add": 500,
 							"remove": 200,
-							"recur": 100,
-							"change_on_iteration": "10%"
+							"recur": 100
 						},
 						"end": 800,
 						"ref": {
@@ -36,40 +35,18 @@
 							}
 
 						}
-					},
-					"entitlement": {
+					}
+				}
+			},
+			"identity": {
+				"start": 100,
+				"while": {
+					"add": 150,
+					"remove": 200,
+					"recur": 50
+				},
+				"end": 100
 
-					}
-				}
-			},
-			"identity": {},
-			"manager": {
-				"ref": {
-					"identity": {
-						"conected_by": "manager_is_identity"
-					}
-				}
-			},
-			"biso": {
-				"ref": {
-					"identity": {
-						"conected_by": "biso_is_identity"
-					}
-				}
-			},
-			"chief_biso": {
-				"ref": {
-					"identity": {
-						"conected_by": "chiefBiso_is_identity"
-					}
-				}
-			},
-			"itao": {
-				"ref": {
-					"identity": {
-						"conected_by": "itao_is_identity"
-					}
-				}
 			}
 		}
 	}
