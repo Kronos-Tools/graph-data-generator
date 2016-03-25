@@ -1,0 +1,9 @@
+{
+  "name": "identity",
+  "tdg": {
+    "count_all": 250
+  },
+  "min_id": 3010,
+  "max_id": 3259,
+  "type": "vertex"
+}

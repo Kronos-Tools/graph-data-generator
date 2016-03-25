@@ -1,0 +1,9 @@
+{
+  "name": "entitlement",
+  "tdg": {
+    "count_all": 500
+  },
+  "min_id": 3260,
+  "max_id": 3759,
+  "type": "vertex"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "application",
+  "tdg": {
+    "count_all": 10
+  },
+  "min_id": 0,
+  "max_id": 9,
+  "type": "vertex"
+}

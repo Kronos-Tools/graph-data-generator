@@ -1,0 +1,104 @@
+{
+	"time_shift": {
+		"iterations": 10
+	},
+	"vertices": {
+		"application": {
+			"tdg": {
+				"count_all": 20
+			},
+			"time_shift": {
+				"start": 7,
+				"add": 13,
+				"remove": 3
+			},
+			"vertices": {
+				"account": {
+					"description": "An account of an application",
+					"tdg": {
+						"count_all": 150,
+						"edge": {
+							"need_random": false,
+							"unique": true,
+							"min": 1,
+							"max": 30,
+							"target": {
+								"elements_per_source": false
+							}
+						}
+					},
+					"time_shift": {
+						"start": 100,
+						"add": 50,
+						"remove": 30,
+						"recur": 10
+					}
+				},
+				"entitlement": {
+					"tdg": {
+						"count_all": 100,
+						"edge": {
+							"need_random": false,
+							"unique": true,
+							"min": 1,
+							"max": 20,
+							"target": {
+								"elements_per_source": false
+							}
+						}
+					}
+				}
+			}
+		},
+		"identity": {
+			"tdg": {
+				"count_all": 100
+			},
+			"time_shift": {
+				"start": 60,
+				"add": 40,
+				"remove": 10
+			}
+		}
+	},
+	"edges": [{
+		"name": "account_has_entitlement",
+		"src": "account",
+		"target": "entitlement",
+		"tdg": {
+			"need_random": true,
+			"count_all": 1500,
+			"unique": true,
+			"min": 1,
+			"max": 200,
+			"src": {
+				"function": "getSourceApplicationHasAccount"
+			},
+			"target": {
+				"elements_per_source": true,
+				"function": {
+					"elements": "getTargetApplicationHasEntitlement",
+					"amount": "getSourceLengthApplicationHasEntitlement"
+				}
+			}
+		}
+	}, {
+		"name": "account_identity",
+		"src": "account",
+		"target": "identity",
+		"tdg": {
+			"need_random": true,
+			"count_all": 150,
+			"unique": false,
+			"min": 1,
+			"max": 1,
+			"target": {
+				"elements_per_source": false,
+				"function": {
+					"elements": "getTargetAccountIdentity",
+					"amount": "getSourceLengthAccountIdentity"
+				}
+			}
+		}
+	}]
+}

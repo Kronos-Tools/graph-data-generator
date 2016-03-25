@@ -1,0 +1,10 @@
+{
+  "name": "account",
+  "description": "An account of an application",
+  "tdg": {
+    "count_all": 3000
+  },
+  "min_id": 10,
+  "max_id": 3009,
+  "type": "vertex"
+}

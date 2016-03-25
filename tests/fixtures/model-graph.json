@@ -1,74 +1,62 @@
 {
-	"vertices": [{
-		"name": "application",
-		"tdg": {
-			"count_all": 10
+	"vertices": {
+		"application": {
+			"tdg": {
+				"count_all": 20
+			}
+		},
+		"account": {
+			"description": "An account of an application",
+			"tdg": {
+				"count_all": 150
+			}
+		},
+		"identity": {
+			"tdg": {
+				"count_all": 100
+			}
+		},
+		"entitlement": {
+			"tdg": {
+				"count_all": 100
+			}
 		}
-	}, {
-		"name": "account",
-		"description": "An account of an application",
-		"tdg": {
-			"count_all": 3000
-		}
-	}, {
-		"name": "identity",
-		"tdg": {
-			"count_all": 250
-		}
-	}, {
-		"name": "entitlement",
-		"tdg": {
-			"count_all": 500
-		}
-	}],
-
+	},
 	"edges": [{
 		"name": "application_has_account",
-		"src": {
-			"name": "application"
-		},
-		"target": {
-			"name": "account"
-		},
+		"src": "application",
+		"target": "account",
 		"tdg": {
 			"need_random": false,
-			"count_all": 3000,
+			"count_all": 150,
 			"unique": true,
 			"min": 1,
-			"max": 500,
+			"max": 30,
 			"target": {
 				"elements_per_source": false
 			}
 		}
 	}, {
 		"name": "application_has_entitlement",
-		"src": {
-			"name": "application"
-		},
-		"target": {
-			"name": "entitlement"
-		},
+		"src": "application",
+		"target": "entitlement",
 		"tdg": {
 			"need_random": false,
-			"count_all": 500,
+			"count_all": 50,
 			"unique": true,
 			"min": 1,
-			"max": 200,
+			"max": 20,
 			"target": {
 				"elements_per_source": false
 			}
 		}
 	}, {
 		"name": "account_has_entitlement",
-		"src": {
-			"name": "account"
-		},
-		"target": {
-			"name": "entitlement"
-		},
+		"src": "account",
+		"target": "entitlement",
 		"tdg": {
 			"need_random": true,
-			"count_all": 15000,
+			"count_all": 1500,
 			"unique": true,
 			"min": 1,
 			"max": 200,
@@ -85,15 +73,11 @@
 		}
 	}, {
 		"name": "account_identity",
-		"src": {
-			"name": "account"
-		},
-		"target": {
-			"name": "identity"
-		},
+		"src": "account",
+		"target": "identity",
 		"tdg": {
 			"need_random": true,
-			"count_all": 3000,
+			"count_all": 150,
 			"unique": false,
 			"min": 1,
 			"max": 1,
