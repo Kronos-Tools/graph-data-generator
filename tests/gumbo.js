@@ -33,6 +33,13 @@ if (isOk) {
 		promisses.push(writerJson.writeVertex(vertex));
 	});
 
+
+	Object.keys(model.registry.edges).forEach((edgeName) => {
+		const edge = model.registry.edges[edgeName];
+		promisses.push(writerJson.writeEdge(edge));
+	});
+
+
 	Promise.all(promisses).then(() => {
 		console.log("--------------------------");
 		console.log("-- Finished");

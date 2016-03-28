@@ -4,7 +4,7 @@
   "count": 20,
   "max_id": 19,
   "type": "vertex",
-  "timeshift_store": {
+  "time_shift_store": {
     "start": [
       0,
       1,

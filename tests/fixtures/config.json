@@ -18,13 +18,8 @@
 					"tdg": {
 						"count_all": 150,
 						"edge": {
-							"need_random": false,
-							"unique": true,
 							"min": 1,
-							"max": 30,
-							"target": {
-								"elements_per_source": false
-							}
+							"max": 30
 						}
 					},
 					"time_shift": {
