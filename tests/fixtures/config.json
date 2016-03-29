@@ -60,6 +60,12 @@
 		"name": "account_has_entitlement",
 		"src": "account",
 		"target": "entitlement",
+		"time_shift": {
+			"start": 700,
+			"add": 800,
+			"remove": 100,
+			"recur": 10
+		},
 		"tdg": {
 			"need_random": true,
 			"count_all": 1500,
@@ -81,6 +87,10 @@
 		"name": "account_identity",
 		"src": "account",
 		"target": "identity",
+		"time_shift": {
+			"start": 100,
+			"add": 50
+		},
 		"tdg": {
 			"need_random": true,
 			"count_all": 150,
