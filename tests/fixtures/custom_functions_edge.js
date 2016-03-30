@@ -20,8 +20,8 @@ const getSourceApplicationHasAccount = function (model, edgeConfig, logger) {
 	const sourceEdge = model.registry.edges[name];
 	const resArray = [];
 
-	Object.keys(sourceEdge.objects).forEach(appId => {
-		sourceEdge.objects[appId].forEach(val => {
+	Object.keys(sourceEdge.time_shift_status.active).forEach(appId => {
+		sourceEdge.time_shift_status.active[appId].forEach(val => {
 			resArray.push(val);
 
 			// Store which account belongs to which application
@@ -51,7 +51,7 @@ const getTargetApplicationHasEntitlement = function (model, edgeConfig, logger, 
 	// to get the entitlements we need to know the application
 	const appId = idMapper[accountId];
 
-	const resArray = sourceEdge.objects[appId];
+	const resArray = sourceEdge.time_shift_status.active[appId];
 	return resArray;
 };
 
@@ -75,7 +75,7 @@ const getSourceLengthApplicationHasEntitlement = function (model, edgeConfig, lo
 	const appId = idMapper[accountId];
 
 	// the number of entitlements this application has
-	const resNumber = sourceEdge.objects[appId].length;
+	const resNumber = sourceEdge.time_shift_status.active[appId].length;
 	return resNumber;
 };
 
@@ -98,11 +98,7 @@ const getTargetAccountIdentity = function (model, edgeConfig, logger, accountId)
 	// Get the generated edge data from the internal registry
 	const vertex = model.registry.vertices[name];
 
-	const sMin = vertex.min_id;
-	const sMax = vertex.max_id;
-
-	const resArray = createArrayFromRange(sMin, sMax);
-	return resArray;
+	return vertex.time_shift_status.active;
 };
 
 /**
@@ -119,31 +115,13 @@ const getSourceLengthAccountIdentity = function (model, edgeConfig, logger, acco
 	const name = 'identity';
 
 	// Get the generated edge data from the internal registry
+	// Get the generated edge data from the internal registry
 	const vertex = model.registry.vertices[name];
 
-	const sMin = vertex.min_id;
-	const sMax = vertex.max_id;
-
-	// the number of entitlements this application has
-	const resNumber = sMax - sMin;
-	return resNumber;
+	return vertex.time_shift_status.active.length;
 };
 
-/**
- * Create an array of available IDs out of a range
- * @param minId (number) The minimum ID
- * @param maxId (number) The maximum ID
- * @return ret (array) An array with all the ids
- */
-function createArrayFromRange(minId, maxId) {
-	const ret = new Array(maxId - minId + 1);
-	let idx = 0;
-	for (let i = minId; i <= maxId; i++) {
-		ret[idx] = i;
-		idx++;
-	}
-	return ret;
-}
+
 module.exports.functions = {
 	"getSourceApplicationHasAccount": getSourceApplicationHasAccount,
 	"getTargetApplicationHasEntitlement": getTargetApplicationHasEntitlement,

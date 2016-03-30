@@ -31,12 +31,12 @@
 				},
 				"entitlement": {
 					"tdg": {
-						"count_all": 100,
+						"count_all": 200,
 						"edge": {
 							"need_random": false,
 							"unique": true,
 							"min": 1,
-							"max": 20,
+							"max": 40,
 							"target": {
 								"elements_per_source": false
 							}
@@ -47,11 +47,11 @@
 		},
 		"identity": {
 			"tdg": {
-				"count_all": 100
+				"count_all": 200
 			},
 			"time_shift": {
-				"start": 60,
-				"add": 40,
+				"start": 120,
+				"add": 80,
 				"remove": 10
 			}
 		}
