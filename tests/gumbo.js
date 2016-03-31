@@ -5,9 +5,22 @@ const path = require('path');
 
 const tdg = require('../lib/exports');
 
+const dataGenerators = {
+	"faker": tdg.generatorFakerFactory(),
+	"regex": tdg.generatorRegexFactory(),
+	"tdg": tdg.generatorTdgFactory(),
+	"entitlement": tdg.generatorEntitlementFactory()
+};
+
+const dataGenerator = tdg.generatorDispatcherFactory({
+	"custom_generators": dataGenerators
+});
+
 const model = tdg.modelConfigFactory();
+
 const executer = tdg.executerDefaultFactory({
-	"model": model
+	"model": model,
+	"data_generator": dataGenerator
 });
 
 const targetDir = path.join(__dirname, './result');

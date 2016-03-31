@@ -4,36 +4,86 @@
   "count": 20,
   "max_id": 19,
   "type": "vertex",
-  "time_shift_status": {
-    "available": {
-      "min": 20,
-      "max": 19
+  "config": {
+    "tdg": {
+      "count_all": 20,
+      "id_fields": {
+        "app_id": {
+          "type": "regex",
+          "exp": "[1-9]{1,3}-[a-z]{3,8}",
+          "case_sensitive": true,
+          "unique": true,
+          "field_name": "app_id"
+        }
+      }
     },
-    "active": [
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19
-    ],
-    "removed": [
-      0,
-      1,
-      2
-    ],
-    "remove_on_iteration": 10
+    "time_shift": {
+      "start": 7,
+      "add": 13,
+      "remove": 3
+    },
+    "vertices": {
+      "account": {
+        "description": "An account of an application",
+        "tdg": {
+          "count_all": 150,
+          "edge": {
+            "reuse": false,
+            "unique": true,
+            "need_random": false,
+            "min": 1,
+            "max": 30,
+            "src": "application",
+            "target": "account",
+            "count_all": 150
+          },
+          "id_fields": {
+            "account_id": {
+              "type": "faker",
+              "function": "finance.account",
+              "unique": true,
+              "elements_per_source": true,
+              "field_name": "account_id"
+            }
+          }
+        },
+        "time_shift": {
+          "start": 100,
+          "add": 50,
+          "remove": 30,
+          "recur": 10
+        },
+        "name": "account"
+      },
+      "entitlement": {
+        "tdg": {
+          "count_all": 200,
+          "edge": {
+            "reuse": false,
+            "unique": true,
+            "need_random": false,
+            "min": 1,
+            "max": 40,
+            "target": "entitlement",
+            "src": "application",
+            "count_all": 200
+          },
+          "id_fields": {
+            "name": {
+              "type": "entitlement",
+              "unique": true,
+              "elements_per_source": true,
+              "field_name": "name"
+            }
+          }
+        },
+        "name": "entitlement",
+        "time_shift": {
+          "start": 200
+        }
+      }
+    },
+    "name": "application"
   },
   "time_shift_store": {
     "start": [
@@ -109,5 +159,67 @@
         ]
       }
     ]
+  },
+  "key_data": {
+    "0": {
+      "app_id": "6-sMe"
+    },
+    "1": {
+      "app_id": "9-Tej"
+    },
+    "2": {
+      "app_id": "1-CYanRvJI"
+    },
+    "3": {
+      "app_id": "948-GBVXNr"
+    },
+    "4": {
+      "app_id": "33-mqsoP"
+    },
+    "5": {
+      "app_id": "6-AJsjLAr"
+    },
+    "6": {
+      "app_id": "86-AYrsePU"
+    },
+    "7": {
+      "app_id": "32-xocdqE"
+    },
+    "8": {
+      "app_id": "16-Bybi"
+    },
+    "9": {
+      "app_id": "36-rwmSmrb"
+    },
+    "10": {
+      "app_id": "945-QRt"
+    },
+    "11": {
+      "app_id": "32-VNLzKU"
+    },
+    "12": {
+      "app_id": "627-AoO"
+    },
+    "13": {
+      "app_id": "982-LTowMJ"
+    },
+    "14": {
+      "app_id": "28-NkMh"
+    },
+    "15": {
+      "app_id": "3-qlYtrmnO"
+    },
+    "16": {
+      "app_id": "5-oeXvWfc"
+    },
+    "17": {
+      "app_id": "4-CYIuAda"
+    },
+    "18": {
+      "app_id": "233-panc"
+    },
+    "19": {
+      "app_id": "42-DroEZE"
+    }
   }
 }

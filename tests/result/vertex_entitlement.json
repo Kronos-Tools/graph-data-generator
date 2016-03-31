@@ -4,215 +4,32 @@
   "count": 200,
   "max_id": 369,
   "type": "vertex",
-  "time_shift_status": {
-    "available": {
-      "min": 370,
-      "max": 369
+  "config": {
+    "tdg": {
+      "count_all": 200,
+      "edge": {
+        "reuse": false,
+        "unique": true,
+        "need_random": false,
+        "min": 1,
+        "max": 40,
+        "target": "entitlement",
+        "src": "application",
+        "count_all": 200
+      },
+      "id_fields": {
+        "name": {
+          "type": "entitlement",
+          "unique": true,
+          "elements_per_source": true,
+          "field_name": "name"
+        }
+      }
     },
-    "active": [
-      199,
-      200,
-      201,
-      202,
-      203,
-      204,
-      205,
-      206,
-      207,
-      208,
-      209,
-      210,
-      211,
-      212,
-      213,
-      214,
-      215,
-      216,
-      217,
-      218,
-      219,
-      220,
-      221,
-      222,
-      223,
-      224,
-      225,
-      226,
-      227,
-      228,
-      229,
-      230,
-      231,
-      232,
-      233,
-      234,
-      235,
-      236,
-      237,
-      238,
-      239,
-      240,
-      241,
-      242,
-      243,
-      244,
-      245,
-      246,
-      247,
-      248,
-      249,
-      250,
-      251,
-      252,
-      253,
-      254,
-      255,
-      256,
-      257,
-      258,
-      259,
-      260,
-      261,
-      262,
-      263,
-      264,
-      265,
-      266,
-      267,
-      268,
-      269,
-      270,
-      271,
-      272,
-      273,
-      274,
-      275,
-      276,
-      277,
-      278,
-      279,
-      280,
-      281,
-      282,
-      283,
-      284,
-      285,
-      286,
-      287,
-      288,
-      289,
-      290,
-      291,
-      292,
-      293,
-      294,
-      295,
-      296,
-      297,
-      298,
-      299,
-      300,
-      301,
-      302,
-      303,
-      304,
-      305,
-      306,
-      307,
-      308,
-      309,
-      310,
-      311,
-      312,
-      313,
-      314,
-      315,
-      316,
-      317,
-      318,
-      319,
-      320,
-      321,
-      322,
-      323,
-      324,
-      325,
-      326,
-      327,
-      328,
-      329,
-      330,
-      331,
-      332,
-      333,
-      334,
-      335,
-      336,
-      337,
-      338,
-      339,
-      340,
-      341,
-      342,
-      343,
-      344,
-      345,
-      346,
-      347,
-      348,
-      349,
-      350,
-      351,
-      352,
-      353,
-      354,
-      355,
-      356,
-      357,
-      358,
-      359,
-      360,
-      361,
-      362,
-      363,
-      364,
-      365,
-      366,
-      367,
-      368,
-      369
-    ],
-    "removed": [
-      170,
-      171,
-      172,
-      173,
-      174,
-      175,
-      176,
-      177,
-      178,
-      179,
-      180,
-      181,
-      182,
-      183,
-      184,
-      185,
-      186,
-      187,
-      188,
-      189,
-      190,
-      191,
-      192,
-      193,
-      194,
-      195,
-      196,
-      197,
-      198
-    ]
+    "name": "entitlement",
+    "time_shift": {
+      "start": 200
+    }
   },
   "time_shift_store": {
     "start": [
@@ -292,47 +109,47 @@
       243,
       244,
       245,
-      246
+      246,
+      247,
+      248,
+      249,
+      250,
+      251,
+      252
     ],
     "iter": [
       {
         "a": [
-          247,
-          248,
-          249,
-          250,
-          251,
-          252,
           253,
           254,
           255,
           256,
           257,
-          258
-        ]
-      },
-      {
-        "a": [
+          258,
           259,
           260,
           261,
           262,
-          263,
+          263
+        ]
+      },
+      {
+        "a": [
           264,
           265,
           266,
           267,
           268,
           269,
-          270
+          270,
+          271,
+          272,
+          273,
+          274
         ]
       },
       {
         "a": [
-          271,
-          272,
-          273,
-          274,
           275,
           276,
           277,
@@ -340,14 +157,14 @@
           279,
           280,
           281,
-          282
+          282,
+          283,
+          284,
+          285
         ]
       },
       {
         "a": [
-          283,
-          284,
-          285,
           286,
           287,
           288,
@@ -356,7 +173,10 @@
           291,
           292,
           293,
-          294
+          294,
+          295,
+          296,
+          297
         ],
         "r": [
           170,
@@ -366,14 +186,17 @@
           174,
           175,
           176,
-          177
+          177,
+          178,
+          179,
+          180,
+          181,
+          182,
+          183
         ]
       },
       {
         "a": [
-          295,
-          296,
-          297,
           298,
           299,
           300,
@@ -382,14 +205,14 @@
           303,
           304,
           305,
-          306
+          306,
+          307,
+          308,
+          309
         ]
       },
       {
         "a": [
-          307,
-          308,
-          309,
           310,
           311,
           312,
@@ -398,14 +221,14 @@
           315,
           316,
           317,
-          318
+          318,
+          319,
+          320,
+          321
         ]
       },
       {
         "a": [
-          319,
-          320,
-          321,
           322,
           323,
           324,
@@ -414,14 +237,14 @@
           327,
           328,
           329,
-          330
+          330,
+          331,
+          332,
+          333
         ]
       },
       {
         "a": [
-          331,
-          332,
-          333,
           334,
           335,
           336,
@@ -431,15 +254,11 @@
           340,
           341,
           342,
-          343
+          343,
+          344,
+          345
         ],
         "r": [
-          178,
-          179,
-          180,
-          181,
-          182,
-          183,
           184,
           185,
           186,
@@ -448,13 +267,15 @@
           189,
           190,
           191,
-          192
+          192,
+          193,
+          194,
+          195,
+          196
         ]
       },
       {
         "a": [
-          344,
-          345,
           346,
           347,
           348,
@@ -465,12 +286,12 @@
           353,
           354,
           355,
-          356
+          356,
+          357
         ]
       },
       {
         "a": [
-          357,
           358,
           359,
           360,
@@ -485,14 +306,618 @@
           369
         ],
         "r": [
-          193,
-          194,
-          195,
-          196,
           197,
-          198
+          198,
+          199,
+          200,
+          201,
+          202,
+          203,
+          204
         ]
       }
     ]
+  },
+  "key_data": {
+    "170": {
+      "name": "Calculate: MI on DTerm.app"
+    },
+    "171": {
+      "name": "Resource with FORWARD permission"
+    },
+    "172": {
+      "name": "WRITE Data Transfer From FunctLocation with Admin specific role"
+    },
+    "173": {
+      "name": "Resource JPLKK with DENY permission"
+    },
+    "174": {
+      "name": "Resource YGV with WRITE permission"
+    },
+    "175": {
+      "name": "Admin normal role in App_Store.app"
+    },
+    "176": {
+      "name": "Archive: EEC on Image_Capture.app"
+    },
+    "177": {
+      "name": "Resource with Archiving permission"
+    },
+    "178": {
+      "name": "[747671] : Photo_Booth.app on Change limit"
+    },
+    "179": {
+      "name": "User role in Keynote.app"
+    },
+    "180": {
+      "name": "[606607] : Brother on Automatic limit"
+    },
+    "181": {
+      "name": "Collective Forecast Costs: Individual Projects with Guest user role"
+    },
+    "182": {
+      "name": "[840349] : SQLDeveloper.app on Automatic limit"
+    },
+    "183": {
+      "name": "Attendance: RB on Cyberduck.app"
+    },
+    "184": {
+      "name": "Calculate Actl Template Alloc.: Cust. Orders with Supervisor role"
+    },
+    "185": {
+      "name": "Guest user role in Skype.app"
+    },
+    "186": {
+      "name": "Resource with Calculate permission"
+    },
+    "187": {
+      "name": "Resource PPDMY with DELETE permission"
+    },
+    "188": {
+      "name": "Migration action in Dashboard.app"
+    },
+    "189": {
+      "name": "WRITE: YH on Utilities"
+    },
+    "190": {
+      "name": "Install action in Mail.app"
+    },
+    "191": {
+      "name": "Guest user role in Blu-ray_Player.app"
+    },
+    "192": {
+      "name": "Assign: GKU on 7zX.app"
+    },
+    "193": {
+      "name": "[559165] : Time_Machine.app on Assign limit"
+    },
+    "194": {
+      "name": "Admin plus ent in GarageBand.app"
+    },
+    "195": {
+      "name": "Install action in Utilities"
+    },
+    "196": {
+      "name": "Resource with Change permission"
+    },
+    "197": {
+      "name": "[943607] : GarageBand.app on Change limit"
+    },
+    "198": {
+      "name": "Resource EO with UPDATE permission"
+    },
+    "199": {
+      "name": "Resource YJ with DENY permission"
+    },
+    "200": {
+      "name": "Confirmation -> Resource Transportation ticket in UnRarX.app"
+    },
+    "201": {
+      "name": "[696339] : Audiobook_Builder.app on Confirm limit"
+    },
+    "202": {
+      "name": "Resource FOJFC with Assortment permission"
+    },
+    "203": {
+      "name": "Resource with Assignment permission"
+    },
+    "204": {
+      "name": "Resource with DELETE permission"
+    },
+    "205": {
+      "name": "Admin normal role in MyMusicoConverterFree.app"
+    },
+    "206": {
+      "name": "Cancel: DN on Pages.app"
+    },
+    "207": {
+      "name": "Resource KI with Call permission"
+    },
+    "208": {
+      "name": "Archiving -> Resource vendor account group in PDF_Toolkit.app"
+    },
+    "209": {
+      "name": "Resource UJ with Cancel permission"
+    },
+    "210": {
+      "name": "Resource with DENY permission"
+    },
+    "211": {
+      "name": "Migration action in VMware_Fusion.app"
+    },
+    "212": {
+      "name": "DENY -> Resource Display Exception: TIS in UnRarX.app"
+    },
+    "213": {
+      "name": "Resource LOT with DELETE permission"
+    },
+    "214": {
+      "name": "Resource YFIX with Archiving permission"
+    },
+    "215": {
+      "name": "Resource QPGM with UPDATE permission"
+    },
+    "216": {
+      "name": "WRITE Di Giambattista, Nhien with Migration action"
+    },
+    "217": {
+      "name": "Calculate Inspection lot with Install action"
+    },
+    "218": {
+      "name": "DELETE List cluster direct. SI declaration with Degrate what ever"
+    },
+    "219": {
+      "name": "Resource with Collective permission"
+    },
+    "220": {
+      "name": "Attendance -> Resource Display data for inspection lot in Mail.app"
+    },
+    "221": {
+      "name": "[32851] : DTerm.app on Archiving limit"
+    },
+    "222": {
+      "name": "Collective: AC on VMware_Fusion.app"
+    },
+    "223": {
+      "name": "Confirm -> Resource IMG Activity: _JBVBEWREG in Xcode.app"
+    },
+    "224": {
+      "name": "NONE -> Resource Display Route Schedule: Initial Scr. in Safari.app"
+    },
+    "225": {
+      "name": "[795839] : Automator.app on Automatic limit"
+    },
+    "226": {
+      "name": "Archive: IA on Messages.app"
+    },
+    "227": {
+      "name": "[686811] : Blu-ray_Player.app on READ limit"
+    },
+    "228": {
+      "name": "Resource with UPDATE permission"
+    },
+    "229": {
+      "name": "REASSIGN Manual depreciation with Admin normal role"
+    },
+    "230": {
+      "name": "Resource with Attendance permission"
+    },
+    "231": {
+      "name": "Attendance Reverse Deposit at Notice with Degrate what ever"
+    },
+    "232": {
+      "name": "Call Create Contr.Cycles for Rel.Ord.Part with Admin supervisor role"
+    },
+    "233": {
+      "name": "Assignment -> Resource Create netting in Dashboard.app"
+    },
+    "234": {
+      "name": "[784451] : Photo_Booth.app on Attendance limit"
+    },
+    "235": {
+      "name": "Supervisor role in Dictionary.app"
+    },
+    "236": {
+      "name": "[590643] : Google_Earth.app on Call limit"
+    },
+    "237": {
+      "name": "READ: LOYEI on Chess.app"
+    },
+    "238": {
+      "name": "[618401] : Time_Machine.app on WRITE limit"
+    },
+    "239": {
+      "name": "Automatic: DC on Calculator.app"
+    },
+    "240": {
+      "name": "Guest user role in Automator.app"
+    },
+    "241": {
+      "name": "Admin plus ent in Contacts.app"
+    },
+    "242": {
+      "name": "Guest user role in iMovie.app"
+    },
+    "243": {
+      "name": "[682273] : Mail.app on Approval limit"
+    },
+    "244": {
+      "name": "[210509] : Keynote.app on Assignment limit"
+    },
+    "245": {
+      "name": "Admin supervisor role in INSTAR_Camera_Tool.app"
+    },
+    "246": {
+      "name": "Admin normal role in VMware_Fusion.app"
+    },
+    "247": {
+      "name": "Cancel Display Condition Assignment with Admin supervisor role"
+    },
+    "248": {
+      "name": "[102110] : iMovie.app on DELETE limit"
+    },
+    "249": {
+      "name": "Automatic -> Resource Access Charge Router Reports in Cyberduck.app"
+    },
+    "250": {
+      "name": "Change -> Resource Display other loan application in Messages.app"
+    },
+    "251": {
+      "name": "REASSIGN Perform billing actions in account maintenance with Supervisor role"
+    },
+    "252": {
+      "name": "Call: AIJ on Notes.app"
+    },
+    "253": {
+      "name": "Resource ZD with Attendance permission"
+    },
+    "254": {
+      "name": "Archiving Analyze Summarization Object with Install action"
+    },
+    "255": {
+      "name": "UPDATE: GVAX on Calculator.app"
+    },
+    "256": {
+      "name": "Resource with Archive permission"
+    },
+    "257": {
+      "name": "UPDATE: HDVOQ on QuickTime_Player.app"
+    },
+    "258": {
+      "name": "[212332] : Launchpad.app on Collective limit"
+    },
+    "259": {
+      "name": "Attendance: HU on Reminders.app"
+    },
+    "260": {
+      "name": "Change Procurement with Admin plus ent"
+    },
+    "261": {
+      "name": "[35758] : System_Preferences.app on DELETE limit"
+    },
+    "262": {
+      "name": "[333201] : Pages.app on WRITE limit"
+    },
+    "263": {
+      "name": "[414413] : Apple_Configurator.app on Confirmation limit"
+    },
+    "264": {
+      "name": "Setup action in Dashboard.app"
+    },
+    "265": {
+      "name": "Confirmation training code with Install action"
+    },
+    "266": {
+      "name": "READ grade info with Admin specific role"
+    },
+    "267": {
+      "name": "[197882] : Xcode.app on WRITE limit"
+    },
+    "268": {
+      "name": "Assignment -> Resource Add strategy-controlled plan in Automator.app"
+    },
+    "269": {
+      "name": "Confirm -> Resource Check Source Export in Mission_Control.app"
+    },
+    "270": {
+      "name": "Automatic: YC on Dictionary.app"
+    },
+    "271": {
+      "name": "Admin plus ent in iBooks.app"
+    },
+    "272": {
+      "name": "Assign: HO on Notes.app"
+    },
+    "273": {
+      "name": "[950422] : xDiagram.app on Approval limit"
+    },
+    "274": {
+      "name": "[769298] : Launchpad.app on Approval limit"
+    },
+    "275": {
+      "name": "Archiving Process codes <-> standard tasks with Admin normal role"
+    },
+    "276": {
+      "name": "Resource NDIUZ with Calculate permission"
+    },
+    "277": {
+      "name": "Admin plus ent in Reminders.app"
+    },
+    "278": {
+      "name": "[588606] : MyMusicoConverterFree.app on REASSIGN limit"
+    },
+    "279": {
+      "name": "Attendance -> Resource Pay Scale Lump-Sum Minimum Net Amt in Mission_Control.app"
+    },
+    "280": {
+      "name": "UPDATE -> Resource cert. profile assignment in Stickies.app"
+    },
+    "281": {
+      "name": "[685164] : Mail.app on REASSIGN limit"
+    },
+    "282": {
+      "name": "[856289] : Visual_Paradigm_11.1 on Automatic limit"
+    },
+    "283": {
+      "name": "User role in Brother"
+    },
+    "284": {
+      "name": "REASSIGN file with Install action"
+    },
+    "285": {
+      "name": "Admin supervisor role in NovaMind5Free.app"
+    },
+    "286": {
+      "name": "Resource RT with Confirmation permission"
+    },
+    "287": {
+      "name": "Resource with Confirmation permission"
+    },
+    "288": {
+      "name": "[569046] : Araxis_Merge.app on Assign limit"
+    },
+    "289": {
+      "name": "DELETE: SM on Calendar.app"
+    },
+    "290": {
+      "name": "[766733] : Chess.app on WRITE limit"
+    },
+    "291": {
+      "name": "[179883] : DVD_Player.app on Assignment limit"
+    },
+    "292": {
+      "name": "Automatic: RQ on iStat_Menus.app"
+    },
+    "293": {
+      "name": "Assignment -> Resource Wage types output: payroll account in Synology_Assistant.app"
+    },
+    "294": {
+      "name": "Admin specific role in Notes.app"
+    },
+    "295": {
+      "name": "Admin normal role in PDF_Toolkit.app"
+    },
+    "296": {
+      "name": "[812412] : Xcode6-Beta2.app on REASSIGN limit"
+    },
+    "297": {
+      "name": "Confirmation Incoming Pymnts with Residual Items with Admin normal role"
+    },
+    "298": {
+      "name": "Admin supervisor role in apache-tomcat-8.0.0-RC10"
+    },
+    "299": {
+      "name": "Confirmation -> Resource Create Info Set in Calculator.app"
+    },
+    "300": {
+      "name": "Admin normal role in iStat_Menus.app"
+    },
+    "301": {
+      "name": "Resource FZ with Call permission"
+    },
+    "302": {
+      "name": "Assortment Cost Centers with Install action"
+    },
+    "303": {
+      "name": "Archiving -> Resource Statement for Support Payment in Preview.app"
+    },
+    "304": {
+      "name": "Cancel Planning List with Admin supervisor role"
+    },
+    "305": {
+      "name": "DENY -> Resource Summarized Form 2 in TextWrangler.app"
+    },
+    "306": {
+      "name": "[179412] : iStat_Menus.app on FORWARD limit"
+    },
+    "307": {
+      "name": "User role in xDiagram.app"
+    },
+    "308": {
+      "name": "Attendance Loan Position - Liabilities with Setup action"
+    },
+    "309": {
+      "name": "Archiving -> Resource Role 'BC407 Student' in Preview.app"
+    },
+    "310": {
+      "name": "Admin plus ent in App_Store.app"
+    },
+    "311": {
+      "name": "Resource YK with READ permission"
+    },
+    "312": {
+      "name": "Confirm: SXIZG on VLC.app"
+    },
+    "313": {
+      "name": "DENY Restart - Bank Statement with Admin normal role"
+    },
+    "314": {
+      "name": "Supervisor role in Calendar.app"
+    },
+    "315": {
+      "name": "READ: EBAT on VMware_Fusion.app"
+    },
+    "316": {
+      "name": "DENY: CSBJN on QuickTime_Player.app"
+    },
+    "317": {
+      "name": "Resource JWJNX with DELETE permission"
+    },
+    "318": {
+      "name": "Resource with Automatic permission"
+    },
+    "319": {
+      "name": "[707123] : Pages.app on Assortment limit"
+    },
+    "320": {
+      "name": "[733564] : Automator.app on Assortment limit"
+    },
+    "321": {
+      "name": "Call Create policy application with Supervisor role"
+    },
+    "322": {
+      "name": "Admin normal role in Visual_Paradigm_11.1"
+    },
+    "323": {
+      "name": "Resource KTOW with WRITE permission"
+    },
+    "324": {
+      "name": "Approval -> Resource Connection to Third-Party Payroll in OpenOffice.app"
+    },
+    "325": {
+      "name": "Calculate: VMHM on PDF_Toolkit.app"
+    },
+    "326": {
+      "name": "[589213] : NovaMind5Free.app on Attendance limit"
+    },
+    "327": {
+      "name": "Resource OZ with Archiving permission"
+    },
+    "328": {
+      "name": "DELETE: ZSQE on PDF_Toolkit.app"
+    },
+    "329": {
+      "name": "REASSIGN -> Resource Wage integration in QuickTime_Player.app"
+    },
+    "330": {
+      "name": "[411191] : SourceTree.app on Attendance limit"
+    },
+    "331": {
+      "name": "[400939] : Automator.app on Archiving limit"
+    },
+    "332": {
+      "name": "Calculate: PB on apache-tomcat-8.0.0-RC10"
+    },
+    "333": {
+      "name": "WRITE: JQX on OutBank.app"
+    },
+    "334": {
+      "name": "WRITE -> Resource Person Resp.: Arch. Objects in Game_Center.app"
+    },
+    "335": {
+      "name": "Admin supervisor role in Safari.app"
+    },
+    "336": {
+      "name": "Resource WZ with Assortment permission"
+    },
+    "337": {
+      "name": "[716823] : FaceTime.app on DELETE limit"
+    },
+    "338": {
+      "name": "Resource with NONE permission"
+    },
+    "339": {
+      "name": "[188297] : Automator.app on NONE limit"
+    },
+    "340": {
+      "name": "Change -> Resource Payment order for benefits in NovaMind5Free.app"
+    },
+    "341": {
+      "name": "READ: LA on Xcode.app"
+    },
+    "342": {
+      "name": "Install action in Launchpad.app"
+    },
+    "343": {
+      "name": "FORWARD: UR on Visual_Paradigm_11.1"
+    },
+    "344": {
+      "name": "Archive Cost Centers: Actual Line Items with Migration action"
+    },
+    "345": {
+      "name": "Automatic -> Resource Create Mast.Agreement in Google_Earth.app"
+    },
+    "346": {
+      "name": "Setup action in Audiobook_Builder.app"
+    },
+    "347": {
+      "name": "Setup action in Cyberduck.app"
+    },
+    "348": {
+      "name": "Approval -> Resource Characteristic Assignment in Chess.app"
+    },
+    "349": {
+      "name": "Collective: ULD on SketchBookExpress.app"
+    },
+    "350": {
+      "name": "Resource with Cancel permission"
+    },
+    "351": {
+      "name": "[74845] : Preview.app on Confirm limit"
+    },
+    "352": {
+      "name": "Install action in Brother"
+    },
+    "353": {
+      "name": "[235604] : iBooks.app on READ limit"
+    },
+    "354": {
+      "name": "[62724] : Xcode6-Beta2.app on Cancel limit"
+    },
+    "355": {
+      "name": "Setup action in OpenOffice.app"
+    },
+    "356": {
+      "name": "[892842] : xDiagram.app on Automatic limit"
+    },
+    "357": {
+      "name": "Resource with WRITE permission"
+    },
+    "358": {
+      "name": "READ -> Resource Suwanawongse, Quentin in Dictionary.app"
+    },
+    "359": {
+      "name": "Cancel Kennedy, Janet with Guest user role"
+    },
+    "360": {
+      "name": "Guest user role in Google_Earth.app"
+    },
+    "361": {
+      "name": "Change: OMWN on Carbon_Copy_Cloner.app"
+    },
+    "362": {
+      "name": "Setup action in Brother"
+    },
+    "363": {
+      "name": "Admin plus ent in Chess.app"
+    },
+    "364": {
+      "name": "WRITE -> Resource Results Recording on Web in Chess.app"
+    },
+    "365": {
+      "name": "Calculate: EA on MyMusicoConverterFree.app"
+    },
+    "366": {
+      "name": "Resource with READ permission"
+    },
+    "367": {
+      "name": "Resource with Assortment permission"
+    },
+    "368": {
+      "name": "Supervisor role in iBooks.app"
+    },
+    "369": {
+      "name": "Approval Perform Ad Hoc Payments with Guest user role"
+    }
   }
 }
