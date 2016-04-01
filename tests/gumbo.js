@@ -32,8 +32,8 @@ const customTdgFunctions = require('./fixtures/custom_functions_edge').functions
 model.addCustomEdgeFunctions(customTdgFunctions);
 
 model.init(path.join(__dirname, 'fixtures/config.json'));
-//model.init(path.join(__dirname, 'fixtures/time-shift.json'));
-const isOk = model.validate();
+model.init(path.join(__dirname, 'fixtures/config_export.json'));
+const isOk = model.validate(dataGenerator);
 
 
 

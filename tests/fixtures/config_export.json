@@ -1,0 +1,178 @@
+{
+	"export": {
+		"account": {
+			"exporter": "tdg-exporter-default",
+			"exporter_writer": [{
+				"type": "tdg-exporter-writer-csv",
+				"header": ["app id", "account name", "disabled", "first-name", "last-name", "full-name", "personal",
+					"priveledged",
+					"start-date", "expiry-date", "description", "node", "auth-contact", "group-name", "owner", "owner-type",
+					"entitlements", "last-login", "reviewer", "environment"
+				],
+				"fields": ["app", "account", "disabled", "first_name", "last_name", "full_name", "personal", "priveledged",
+					"start_date", "expiry_date", "description", "node", "authorization_contact", "group_name", "owner",
+					"owner_type",
+					"entitlements", "last_login", "reviewer", "environment"
+				],
+				"seperator": ";",
+				"newline": "\n"
+			}],
+			"data": {
+				"sources": [
+					"application", "account", "entitlement", "identity"
+				],
+				"columns": {
+					"disabled": {
+						"type": "faker",
+						"function": "random.arrayElement",
+						"option": ["F", "F", "F", "F", "T", "F", "F", "F", "F"]
+					},
+					"personal": {
+						"type": "faker",
+						"function": "random.arrayElement",
+						"option": ["T", "T", "T", "T", "F", "T", "T", "T", "T"]
+					},
+					"priveledged": {
+						"type": "faker",
+						"function": "random.arrayElement",
+						"option": ["F", "F", "F", "F", "T", "F", "F", "F", "F"]
+					},
+					"start_date": {
+						"type": "tdg",
+						"function": "fix_value",
+						"option": "01.01.2010"
+					},
+					"expiry_date": {
+						"type": "tdg",
+						"function": "fix_value",
+						"option": "01.01.2100"
+					},
+					"description": {
+						"type": "faker",
+						"function": "lorem.sentence",
+						"unique": true
+					},
+					"node": {
+						"type": "tdg",
+						"function": "fix_value",
+						"option": ""
+					},
+					"authorization_contact": {
+						"type": "tdg",
+						"function": "fix_value",
+						"option": ""
+					},
+					"group_name": {
+						"type": "tdg",
+						"function": "fix_value",
+						"option": ""
+					},
+					"last_login": {
+						"type": "tdg",
+						"function": "fix_value",
+						"option": ""
+					},
+					"reviewer": {
+						"type": "tdg",
+						"function": "fix_value",
+						"option": ""
+					},
+					"environment": {
+						"type": "tdg",
+						"function": "fix_value",
+						"option": ""
+					}
+
+
+				}
+			}
+		},
+
+		"identity": {
+			"exporter": "tdg-exporter-default",
+			"exporter_writer": [{
+				"type": "tdg-exporter-writer-csv",
+				"file_name": "identiy.csv",
+				"header": ["name prefix", "email", "title", "phone", "first name", "last name",
+					"branch name", "city", "zip", "country", "function", "cost center", "structure code"
+				],
+				"fields": ["np", "mail", "title", "phone", "first_name", "last_name", "branch", "city", "zip", "country",
+					"function", "cost_center", "structure_code"
+				],
+				"seperator": ";",
+				"newline": "\n"
+			}],
+			"data": {
+				"sources": [
+					"identity"
+				],
+				"columns": {
+					"np": {
+						"type": "faker",
+						"function": "name.prefix"
+					},
+					"mail": {
+						"type": "tdg",
+						"function": "email",
+						"unique": true
+					},
+					"title": {
+						"type": "faker",
+						"function": "name.title"
+					},
+					"phone": {
+						"type": "faker",
+						"function": "phone.phoneNumber"
+					},
+					"first_name": {
+						"type": "tdg",
+						"function": "first_name"
+					},
+					"last_name": {
+						"type": "tdg",
+						"function": "last_name"
+					},
+					"branch": {
+						"type": "faker",
+						"function": "company.companyName"
+					},
+					"city": {
+						"type": "faker",
+						"function": "address.city"
+					},
+					"zip": {
+						"type": "faker",
+						"function": "address.zipCode"
+					},
+					"country": {
+						"type": "faker",
+						"function": "address.country"
+					},
+					"function": {
+						"type": "faker",
+						"function": "name.jobTitle"
+					},
+					"cost_center": {
+						"type": "faker",
+						"function": "random.number",
+						"option": {
+							"min": 1000000000,
+							"max": 9999999999
+
+						}
+					},
+					"cost_center_name": {
+						"type": "faker",
+						"function": "commerce.department"
+					},
+					"structure_code": {
+						"type": "faker",
+						"function": "helpers.replaceSymbols",
+						"option": "A_#####"
+
+					}
+				}
+			}
+		}
+	}
+}

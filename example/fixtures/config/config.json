@@ -1,0 +1,158 @@
+{
+	"time_shift": {
+		"iterations": 10
+	},
+	"vertices": {
+		"application": {
+			"tdg": {
+				"count_all": 20,
+				"id_fields": {
+					"app_id": {
+						"type": "regex",
+						"exp": "[1-9]{1,3}-[a-z]{3,8}",
+						"case_sensitive": true,
+						"unique": true
+					}
+				}
+			},
+			"time_shift": {
+				"start": 7,
+				"add": 13,
+				"remove": 3
+			},
+			"vertices": {
+				"account": {
+					"description": "An account of an application",
+					"tdg": {
+						"count_all": 150,
+						"edge": {
+							"min": 1,
+							"max": 30
+						},
+						"id_fields": {
+							"account_id": {
+								"type": "faker",
+								"function": "finance.account",
+								"unique": true,
+								"elements_per_source": true
+							}
+						}
+					},
+					"time_shift": {
+						"start": 100,
+						"add": 50,
+						"remove": 30,
+						"recur": 10
+					}
+				},
+				"entitlement": {
+					"tdg": {
+						"count_all": 200,
+						"edge": {
+							"need_random": false,
+							"unique": true,
+							"min": 1,
+							"max": 40,
+							"target": {
+								"elements_per_source": false
+							}
+						},
+						"id_fields": {
+							"name": {
+								"type": "entitlement",
+								"unique": true,
+								"elements_per_source": true
+							}
+						}
+					}
+				}
+			}
+		},
+		"identity": {
+			"tdg": {
+				"count_all": 200,
+			"id_fields": {
+					"user_id": {
+						"type": "faker",
+						"function": "finance.account",
+						"unique": true
+					},
+					"uid2": {
+						"type": "faker",
+						"function": "finance.account",
+						"unique": true
+					},
+					"mail": {
+						"type": "tdg",
+						"function": "email",
+						"domainName": "gumbo.com",
+						"unique": true
+					},
+					"fn": {
+						"type": "tdg",
+						"function": "first_name"
+					},
+					"ln": {
+						"type": "tdg",
+						"function": "last_name"
+					}
+			}
+			},
+			"time_shift": {
+				"start": 120,
+				"add": 80,
+				"remove": 10
+			}
+		}
+	},
+	"edges": [{
+		"name": "account_has_entitlement",
+		"src": "account",
+		"target": "entitlement",
+		"time_shift": {
+			"start": 700,
+			"add": 800,
+			"remove": 100,
+			"recur": 10
+		},
+		"tdg": {
+			"need_random": true,
+			"count_all": 1500,
+			"unique": true,
+			"min": 1,
+			"max": 200,
+			"src": {
+				"function": "getSourceApplicationHasAccount"
+			},
+			"target": {
+				"elements_per_source": true,
+				"function": {
+					"elements": "getTargetApplicationHasEntitlement",
+					"amount": "getSourceLengthApplicationHasEntitlement"
+				}
+			}
+		}
+	}, {
+		"name": "account_identity",
+		"src": "account",
+		"target": "identity",
+		"time_shift": {
+			"start": 100,
+			"add": 50
+		},
+		"tdg": {
+			"need_random": true,
+			"count_all": 150,
+			"unique": false,
+			"min": 1,
+			"max": 1,
+			"target": {
+				"elements_per_source": false,
+				"function": {
+					"elements": "getTargetAccountIdentity",
+					"amount": "getSourceLengthAccountIdentity"
+				}
+			}
+		}
+	}]
+}
