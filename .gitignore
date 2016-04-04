@@ -11,3 +11,4 @@ out
 .tmp
 tests/fixtures/volatile
 tests/volatile
+example/volatile/result

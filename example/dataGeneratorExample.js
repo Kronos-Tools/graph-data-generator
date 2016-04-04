@@ -8,7 +8,7 @@ const gdg = require('../index').main;
 
 
 // The directory for the generated data
-const targetDir = path.join(__dirname, 'fixtures/config/config.json');
+const targetDir = path.join(__dirname, 'volatile/result');
 
 // these functions are necessary to build the edges
 const customEdgeFunctions = require('./fixtures/custom_functions_edge').functions;
