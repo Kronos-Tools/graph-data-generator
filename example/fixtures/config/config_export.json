@@ -1,7 +1,7 @@
 {
 	"export": {
 		"account": {
-			"exporter": "tdg-exporter-default",
+			"exporter": "exporter-account",
 			"exporter_writer": [{
 				"type": "tdg-exporter-writer-csv",
 				"header": ["app id", "account name", "disabled", "first-name", "last-name", "full-name", "personal",
