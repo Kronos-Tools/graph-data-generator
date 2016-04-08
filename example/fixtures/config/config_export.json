@@ -96,7 +96,7 @@
 				"header": ["name prefix", "email", "title", "phone", "first name", "last name",
 					"branch name", "city", "zip", "country", "function", "cost center", "structure code"
 				],
-				"fields": ["np", "mail", "title", "phone", "first_name", "last_name", "branch", "city", "zip", "country",
+				"fields": ["np", "mail", "title", "phone", "fn", "ln", "branch", "city", "zip", "country",
 					"function", "cost_center", "structure_code"
 				],
 				"seperator": ";",
@@ -111,11 +111,6 @@
 						"type": "faker",
 						"function": "name.prefix"
 					},
-					"mail": {
-						"type": "tdg",
-						"function": "email",
-						"unique": true
-					},
 					"title": {
 						"type": "faker",
 						"function": "name.title"
@@ -123,14 +118,6 @@
 					"phone": {
 						"type": "faker",
 						"function": "phone.phoneNumber"
-					},
-					"first_name": {
-						"type": "tdg",
-						"function": "first_name"
-					},
-					"last_name": {
-						"type": "tdg",
-						"function": "last_name"
 					},
 					"branch": {
 						"type": "faker",

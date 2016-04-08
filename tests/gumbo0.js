@@ -1,17 +1,19 @@
 /* jslint node: true, esnext: true */
 "use strict";
 
-const arr1 = ['a', 'c', 'd', 'e'];
-const arr2 = ['a', 'f', 'd', 'g'];
+const writerFactory = require('../lib/util/csv-writer-sync').csvWriterSyncFactory;
 
-arrayConcatUnique(arr1, arr2);
 
-console.log(arr1);
+const writer = writerFactory({
+	"headers": ['a', 'b', 'c']
+});
 
-function arrayConcatUnique(array1, array2) {
-	array2.forEach((val) => {
-		if (array1.indexOf(val) < 0) {
-			array1.push(val);
-		}
-	});
-}
+
+writer.open("gum.csv");
+
+
+writer.write(['z1', 'c2', 'c3']);
+writer.write(['z2', 'c2', 'c3']);
+writer.write(['z3', 'c2', 'c3']);
+
+writer.close();

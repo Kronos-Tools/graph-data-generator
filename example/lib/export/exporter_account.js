@@ -19,18 +19,6 @@ class ExporterAccount extends gdg.ExporterDefault {
 		const vertices = this.model.registry.vertices;
 		const applicationVertex = vertices.application;
 
-		// ------------------------------------------------
-		// Store definition
-		// ------------------------------------------------
-		self.store.acc = {};
-		self.store.acc.active = {};
-		self.store.acc.removed = {};
-
-		// stores the owner information for an active account
-		self.store.owner = {};
-
-		// stores the entitlement information for an active account
-		self.store.entitlement = {};
 
 
 		// ------------------------------------------------
@@ -38,6 +26,21 @@ class ExporterAccount extends gdg.ExporterDefault {
 		// ------------------------------------------------
 		Object.keys(applicationVertex.key_data).forEach((appKey) => {
 			let appStatus;
+
+
+			// ------------------------------------------------
+			// Store definition
+			// ------------------------------------------------
+			self.store.acc = {};
+			self.store.acc.active = {};
+			self.store.acc.removed = {};
+
+			// stores the owner information for an active account
+			self.store.owner = {};
+
+			// stores the entitlement information for an active account
+			self.store.entitlement = {};
+
 
 			self.store.current_app_key = appKey;
 
@@ -68,14 +71,15 @@ class ExporterAccount extends gdg.ExporterDefault {
 					self._exportAccounts(appKey, currentIteration);
 				}
 			}
+
 		});
+
+
 	}
 
 	_exportAccounts(appKey, currentIteration) {
 		const self = this;
-
 		self.logger.debug(`Export accounts for application id='${appKey}'`);
-
 
 		// update the accounts of this application for this iterations
 		this._addRemoveAccountForApplication(appKey, currentIteration);
@@ -88,7 +92,7 @@ class ExporterAccount extends gdg.ExporterDefault {
 		// --------------------------
 
 		// are there active accounts for this appliction?
-		if (this.store.acc.active) {
+		if (this.store.acc.active && Object.keys(this.store.acc.active).length > 0) {
 			self.logger.debug(`Export accounts for application id='${appKey}' Init the writer`);
 
 			const exporterWriterConfigs = this.config.exporter_writer;
@@ -102,13 +106,14 @@ class ExporterAccount extends gdg.ExporterDefault {
 				const writerFactory = self.model.exporter_writer_factory[writerConfigNew.type];
 				const writer = writerFactory(writerConfigNew);
 
+				writer.open();
 				self._writeRows(currentIteration, writer, writerConfigNew);
-
 				writer.close();
 			});
 		} else {
 			self.logger.debug(`No active accoiunts for application id='${appKey}' Nothing will be written`);
 		}
+
 
 	}
 
