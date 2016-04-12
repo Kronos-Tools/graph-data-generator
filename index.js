@@ -2,4 +2,4 @@
 "use strict";
 
 module.exports.main = require('./lib/main');
-module.exports.tdg = require('./lib/exports.js');
+module.exports.gdg = require('./lib/exports.js');
