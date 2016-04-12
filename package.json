@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kronos-Integration/graph-data-generator.git"
+    "url": "git+https://github.com/Kronos-Tools/graph-data-generator.git"
   },
   "bugs": {
-    "url": "https://github.com/Kronos-Integration/graph-data-generator/issues"
+    "url": "https://github.com/Kronos-Tools/graph-data-generator/issues"
   },
-  "homepage": "https://github.com/Kronos-Integration/graph-data-generator#readme",
+  "homepage": "https://github.com/Kronos-Tools/graph-data-generator#readme",
   "engines": {
     "node": ">=5"
   },
@@ -35,16 +35,13 @@
     "rimraf": "^2.5.1",
     "semantic-release": "6.2.0"
   },
-  "contributors": [
-    {
-      "name": "Torsten Link",
-      "email": "torstenlink@gmx.de"
-    },
-    {
-      "name": "Markus Felten",
-      "email": "markus.felten@gmx.de"
-    }
-  ],
+  "contributors": [{
+    "name": "Torsten Link",
+    "email": "torstenlink@gmx.de"
+  }, {
+    "name": "Markus Felten",
+    "email": "markus.felten@gmx.de"
+  }],
   "license": "BSD-2-Clause",
   "config": {
     "commitizen": {
