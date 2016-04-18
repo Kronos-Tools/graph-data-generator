@@ -35,13 +35,16 @@
     "rimraf": "^2.5.1",
     "semantic-release": "6.2.0"
   },
-  "contributors": [{
-    "name": "Torsten Link",
-    "email": "torstenlink@gmx.de"
-  }, {
-    "name": "Markus Felten",
-    "email": "markus.felten@gmx.de"
-  }],
+  "contributors": [
+    {
+      "name": "Torsten Link",
+      "email": "torstenlink@gmx.de"
+    },
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ],
   "license": "BSD-2-Clause",
   "config": {
     "commitizen": {
@@ -53,6 +56,7 @@
     "deep-copy": "^1.1.0",
     "deepmerge": "^0.2.10",
     "faker": "^3.0.1",
+    "fixed-width-string": "^1.0.0",
     "loglevel-mixin": "^1.2.0",
     "mkdirp": "^0.5.1",
     "randexp": "^0.4.2"
