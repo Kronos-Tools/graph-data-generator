@@ -54,7 +54,7 @@
   "dependencies": {
     "csv-write-stream": "^2.0.0",
     "deep-copy": "^1.1.0",
-    "deepmerge": "^1.0.2",
+    "deepmerge": "^1.2.0",
     "faker": "^3.0.1",
     "fixed-width-string": "^1.0.0",
     "loglevel-mixin": "^1.4.2",
