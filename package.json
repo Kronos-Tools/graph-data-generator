@@ -57,7 +57,7 @@
     "deepmerge": "^1.2.0",
     "faker": "^3.0.1",
     "fixed-width-string": "^1.0.0",
-    "loglevel-mixin": "^1.4.2",
+    "loglevel-mixin": "^1.6.2",
     "mkdirp": "^0.5.1",
     "randexp": "^0.4.3"
   }
