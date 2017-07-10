@@ -30,7 +30,7 @@
     "chai": "4.0.1",
     "cz-conventional-changelog": "^2.0.0",
     "istanbul": "0.4.5",
-    "jsdoc": "3.4.3",
+    "jsdoc": "3.5.0",
     "mocha": "3.4.2",
     "rimraf": "^2.5.3",
     "semantic-release": "6.3.6"
