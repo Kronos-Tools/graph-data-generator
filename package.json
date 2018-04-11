@@ -33,7 +33,7 @@
     "jsdoc": "3.5.5",
     "mocha": "5.0.2",
     "rimraf": "^2.6.2",
-    "semantic-release": "15.0.0"
+    "semantic-release": "15.1.6"
   },
   "contributors": [
     {
